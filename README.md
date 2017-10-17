@@ -1,2 +1,0 @@
-# nuevoproyectojava
-ejemplos java
