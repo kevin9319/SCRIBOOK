@@ -1,2 +1,0 @@
-# SCRIBOOK
-Proyecto UTP - SCRIBOOK 
