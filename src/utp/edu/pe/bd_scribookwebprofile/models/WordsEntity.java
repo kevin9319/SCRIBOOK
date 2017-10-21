@@ -86,7 +86,7 @@ public class WordsEntity extends BaseEntity{
 
     public boolean update(int id, String name) {
         return executeUpdate(String.format(
-                "UPDATE %s SET UserName = '%s' WHERE Id_users = %d", getTableName(), name, id));
+                "UPDATE %s SET UserName = '%s' WHERE Id_Words = %d", getTableName(), name, id));
     }
 
     public boolean update(User user) {
@@ -94,12 +94,12 @@ public class WordsEntity extends BaseEntity{
     }
 
     public boolean erase(int id) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE region_id = %d",
+        return executeUpdate(String.format("DELETE FROM %s WHERE Id_Words = %d",
                 getTableName(), id));
     }
 
     public boolean erase(User user) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE region_id = %d",
+        return executeUpdate(String.format("DELETE FROM %s WHERE Id_Words = %d",
                 getTableName(), user.getId()));
     }
 

@@ -56,7 +56,7 @@ public class UsersEntity extends BaseEntity{
     public User create(User user) {
         return executeUpdate(String.format(
                 "INSERT INTO %s(Id_users, UserName) VALUES(%d, '%s')",
-                getTableName(), user.getId(), user.getUsername())) ?
+                getTableName(), user.getId(), user.getUsername(),user.getFirtname(),user.getLastname(),user.getPassword(),user.getEmail(),user.getNickname(),user.getStatus())) ?
                 user : null;
     }
 
@@ -74,12 +74,12 @@ public class UsersEntity extends BaseEntity{
         return 0;
     }
 
-    public User create(String name) {
-        return create(getMaxId()+1, name);
+    public User create(String name, String firtname, String lastname, String password, String email, String nickname, String gender, int status) {
+        return create(getMaxId()+1, name,firtname,lastname,password,email,nickname,gender,status);
     }
 
-    public User create(int id, String name) {
-        return create(new User(id, name"falta las demas variables"));
+    public User create(int id, String name, String firtname, String lastname, String password, String email, String nickname, String gender, int status) {
+        return create(new User(id, name,firtname,lastname,password,email,nickname,gender,status));
     }
 
     public boolean update(int id, String name) {

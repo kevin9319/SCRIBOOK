@@ -51,6 +51,72 @@ public class User {
         return this;
     }
 
+    public String getFirtname() {
+        return firtname;
+    }
+
+    public User setFirtname(String firtname) {
+        this.firtname = firtname;
+        return this;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public User setLastname(String lastname) {
+        this.lastname = lastname;
+        return this;
+    }
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public User setPassword(String password) {
+        this.password = password;
+        return this;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public User setEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public User setNickname(String nickname) {
+        this.nickname = nickname;
+        return this;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public User setGender(String gender) {
+        this.gender = gender;
+        return this;
+    }
+
+
+    public int getStatus() {
+        return status;
+    }
+
+    public User setStatus(int status) {
+        this.status = status;
+        return this;
+    }
+
+
     public static User from(ResultSet rs) {
         try {
             return new User(
