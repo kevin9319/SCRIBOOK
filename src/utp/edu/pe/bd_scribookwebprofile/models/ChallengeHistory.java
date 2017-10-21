@@ -109,9 +109,9 @@ public class ChallengeHistory {
                     .setScore(rs.getInt("Score"))
                     .setCover(rs.getString("Cover"))
                     .setCreateDate(rs.getDate("CreateDate"))
-                    .setUser(usersEntity.findById(rs.getInt("Id_users")))
-                    .setChallenge(challengeEntity.findById(rs.getInt("Id_challenges"),,))
-                    .setHistory(historiesEntity.findById(rs.getInt("Id_Histories"),,));
+                    .setUser(usersEntity.findById(rs.getInt("Id_users")));
+                    //.setChallenge(challengeEntity.findById(rs.getInt("Id_challenges"),,))
+                    //.setHistory(historiesEntity.findById(rs.getInt("Id_Histories"),,));
         }
         catch (SQLException e)
         {
@@ -119,5 +119,4 @@ public class ChallengeHistory {
         }
         return  null;
     }
-
 }
