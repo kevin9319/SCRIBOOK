@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Historieta:</h1>
-<p>Product Titulo: <s:property value="Title"/></p>
-<p>Product Descripción: <s:property value="Descripcion"/></p>
+<p>Nombre de la historieta: <s:property value="Title"/></p>
+<p>Contenido: <s:property value="Descripcion"/></p>
 </body>
 </html>
