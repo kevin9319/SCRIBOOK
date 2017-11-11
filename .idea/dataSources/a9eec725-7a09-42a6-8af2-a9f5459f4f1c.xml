@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="bd_scribook@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="bd_scribook">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="hr"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="sys"/>
+    <table id="8" parent="2" name="category"/>
+    <table id="9" parent="2" name="challenge"/>
+    <table id="10" parent="2" name="challengekeyword"/>
+    <table id="11" parent="2" name="keyword"/>
+    <table id="12" parent="2" name="score"/>
+    <table id="13" parent="2" name="story"/>
+    <table id="14" parent="2" name="user"/>
+    <table id="15" parent="2" name="winner"/>
+    <column id="16" parent="8" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="17" parent="8" name="Description">
+      <Position>2</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="18" parent="8" name="ShortDescription">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="19" parent="8" name="Status">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="20" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="21" parent="9" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="22" parent="9" name="Title">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="23" parent="9" name="Description">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="24" parent="9" name="Status">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="25" parent="9" name="CreateDate">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="26" parent="9" name="LastDate">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="27" parent="9" name="Category">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="28" parent="9" name="User">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="29" parent="9" name="Category">
+      <ColNames>Category</ColNames>
+    </index>
+    <index id="30" parent="9" name="User">
+      <ColNames>User</ColNames>
+    </index>
+    <key id="31" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="32" parent="9" name="challenge_ibfk_1">
+      <ColNames>Category</ColNames>
+      <RefSchemaName>bd_scribook</RefSchemaName>
+      <RefTableName>category</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <foreign-key id="33" parent="9" name="challenge_ibfk_2">
+      <ColNames>User</ColNames>
+      <RefSchemaName>bd_scribook</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="34" parent="10" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="35" parent="10" name="Keyword">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="36" parent="10" name="Challenge">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="37" parent="10" name="Challenge">
+      <ColNames>Challenge</ColNames>
+    </index>
+    <index id="38" parent="10" name="Keyword">
+      <ColNames>Keyword</ColNames>
+    </index>
+    <key id="39" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="40" parent="10" name="challengekeyword_ibfk_1">
+      <ColNames>Keyword</ColNames>
+      <RefSchemaName>bd_scribook</RefSchemaName>
+      <RefTableName>keyword</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <foreign-key id="41" parent="10" name="challengekeyword_ibfk_2">
+      <ColNames>Challenge</ColNames>
+      <RefSchemaName>bd_scribook</RefSchemaName>
+      <RefTableName>challenge</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="42" parent="11" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="43" parent="11" name="Name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="44" parent="11" name="Status">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="45" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="46" parent="12" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="47" parent="12" name="Status">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="48" parent="12" name="Story">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="49" parent="12" name="User">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="50" parent="12" name="Story">
+      <ColNames>Story</ColNames>
+    </index>
+    <index id="51" parent="12" name="User">
+      <ColNames>User</ColNames>
+    </index>
+    <key id="52" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="53" parent="12" name="score_ibfk_1">
+      <ColNames>Story</ColNames>
+      <RefSchemaName>bd_scribook</RefSchemaName>
+      <RefTableName>story</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <foreign-key id="54" parent="12" name="score_ibfk_2">
+      <ColNames>User</ColNames>
+      <RefSchemaName>bd_scribook</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="55" parent="13" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="56" parent="13" name="Title">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="57" parent="13" name="Description">
+      <Position>3</Position>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="58" parent="13" name="ScoreTotal">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="59" parent="13" name="CreateDate">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="60" parent="13" name="User">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="61" parent="13" name="Challenge">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="62" parent="13" name="Challenge">
+      <ColNames>Challenge</ColNames>
+    </index>
+    <index id="63" parent="13" name="User">
+      <ColNames>User</ColNames>
+    </index>
+    <key id="64" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="65" parent="13" name="story_ibfk_2">
+      <ColNames>User</ColNames>
+      <RefSchemaName>bd_scribook</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <foreign-key id="66" parent="13" name="story_ibfk_1">
+      <ColNames>Challenge</ColNames>
+      <RefSchemaName>bd_scribook</RefSchemaName>
+      <RefTableName>challenge</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="67" parent="14" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="68" parent="14" name="UserName">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="69" parent="14" name="FirstName">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="70" parent="14" name="LastName">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="71" parent="14" name="Password">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="72" parent="14" name="Email">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="73" parent="14" name="NickName">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="74" parent="14" name="Gender">
+      <Position>8</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="75" parent="14" name="Status">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="76" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="77" parent="15" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="78" parent="15" name="Challenge">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="79" parent="15" name="User">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="80" parent="15" name="Challenge">
+      <ColNames>Challenge</ColNames>
+    </index>
+    <index id="81" parent="15" name="User">
+      <ColNames>User</ColNames>
+    </index>
+    <key id="82" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="83" parent="15" name="winner_ibfk_1">
+      <ColNames>Challenge</ColNames>
+      <RefSchemaName>bd_scribook</RefSchemaName>
+      <RefTableName>challenge</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <foreign-key id="84" parent="15" name="winner_ibfk_2">
+      <ColNames>User</ColNames>
+      <RefSchemaName>bd_scribook</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

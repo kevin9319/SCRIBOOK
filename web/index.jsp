@@ -7,22 +7,29 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<s:if test="%{id==0}">
+    <s:set var="user_id" value="id" scope="session"/>
+    <s:set var="user_name" value="userName" scope="session"/>
+</s:if>
+
 <html>
 <head>
-    <title>Product Information</title>
+    <title>SCRIBOOK</title>
 </head>
 <body>
-<h1>Product Information</h1>
-<s:form action="product">
-    <s:label for="name" value="Product Name"/>
-    <s:textfield id="name" name="name"/>
-    <s:label for="description" value="Product Description"/>
-    <s:textfield id="description" name="description"/>
-    <s:label for="price" value="Product Price"/>
-    <s:textfield id="price" name="price"/>
-    <s:label for="supplierEmail" value="Supplier Email"/>
-    <s:textfield id="supplierEmail" name="supplierEmail"/>
-    <s:submit value="Save"/>
-</s:form>
+
+<jsp:include page="navbar.jsp"/>
+
+
+
+
+<h1>Lista De Categorías</h1>
+<p>Product Descripción: <s:property value="Description"/></p>
+
+<div>
+    <a href="challenge.jsp"><b>Ir</b></a>
+</div>
+
 </body>
 </html>

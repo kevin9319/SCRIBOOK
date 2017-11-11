@@ -79,9 +79,9 @@ public class ScDataStore {
         return updateUser(user.getId(), user.getFirstName(),user.getLastName(),user.getEmail(),user.getNickName(),user.getGender());
     }
 
-    public int getUserCountUser(User user) {
+    public int getUserCountUser(String userName) {
         if(connection == null) return 0;
-        return getUsersEntity().getCountUser(user);
+        return getUsersEntity().getCountUser(userName);
     }
 
 

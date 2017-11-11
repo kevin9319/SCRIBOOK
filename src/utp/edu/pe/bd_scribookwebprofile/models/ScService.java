@@ -53,7 +53,7 @@ public class ScService {
         return dataStore.findUserById(id);
     }
 
-    public User findUserById(String UserName,String Password) {
+    public User findUserByNamePassword(String UserName,String Password) {
         return dataStore.findUserByNamePassword(UserName,Password);
     }
 
@@ -67,8 +67,8 @@ public class ScService {
         return dataStore.updateUser(id, FirstName,LastName,Email,NickName,Gender);
     }
 
-    public int getUserCountUser(User user) {
-        return dataStore.getUserCountUser(user);
+    public int getUserCountUser(String userName) {
+        return dataStore.getUserCountUser(userName);
     }
 
 

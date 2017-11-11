@@ -41,6 +41,7 @@ public class UsersEntity extends BaseEntity{
     }
 
 
+
     public User findByNamePassword(String UserName,String Password) {
         return findByCriteria(
                 String.format("WHERE UserName = '%s' AND Password = '%s'", UserName,Password)).get(0);
@@ -72,8 +73,8 @@ public class UsersEntity extends BaseEntity{
         return 0;
     }
 
-    public int getCountUser(User user) {
-        String sql = "SELECT COUNT(Id) AS count_id FROM User WHERE UserName='"+user.getUserName()+"'";
+    public int getCountUser(String userName) {
+        String sql = "SELECT COUNT(Id) AS count_id FROM User WHERE UserName='"+userName+"'";
         try {
             ResultSet resultSet = getConnection()
                     .createStatement()
