@@ -10,7 +10,7 @@ public class UsersEntity extends BaseEntity{
 
     public UsersEntity() {
         super();
-        setTableName("users");
+        setTableName("user");
     }
 
     public UsersEntity(Connection connection, String tableName) {
@@ -19,7 +19,7 @@ public class UsersEntity extends BaseEntity{
 
     public User findById(int id) {
         return findByCriteria(
-                String.format("WHERE Id_users = %d", id)).get(0);
+                String.format("WHERE Id = %d", id)).get(0);
     }
 
     public List<User> findByCriteria(String criteria) {
@@ -38,30 +38,28 @@ public class UsersEntity extends BaseEntity{
             e.printStackTrace();
         }
         return null;
-
     }
-    public User findByName(String name) {
+
+
+    public User findByNamePassword(String UserName,String Password) {
         return findByCriteria(
-                String.format("WHERE UserName = '%s'", name)).get(0);
+                String.format("WHERE UserName = '%s' AND Password = '%s'", UserName,Password)).get(0);
     }
 
     public List<User> findAll() {
         return findByCriteria("");
     }
 
-    public List<User> findAllWithUsers() {
-        return findByCriteria("Id_users IN (SELECT DISTINCT Id_users FROM users)");
-    }
 
     public User create(User user) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(Id_users, UserName) VALUES(%d, '%s')",
-                getTableName(), user.getId(), user.getUsername(),user.getFirtname(),user.getLastname(),user.getPassword(),user.getEmail(),user.getNickname(),user.getStatus())) ?
+                "INSERT INTO %s(Id, UserName, FirsName, LastName, Password, Email, NickName, Gender, Status) VALUES(%d, '%s','%s','%s','%s','%s','%s','%s',%d)",
+                getTableName(), user.getId(), user.getUserName(),user.getFirstName(),user.getLastName(),user.getPassword(),user.getEmail(),user.getNickName(),user.getGender(),user.getStatus())) ?
                 user : null;
     }
 
     private int getMaxId() {
-        String sql = "SELECT MAX(Id_users) AS max_id FROM users";
+        String sql = "SELECT MAX(Id) AS max_id FROM user";
         try {
             ResultSet resultSet = getConnection()
                     .createStatement()
@@ -74,31 +72,38 @@ public class UsersEntity extends BaseEntity{
         return 0;
     }
 
-    public User create(String name, String firtname, String lastname, String password, String email, String nickname, String gender, int status) {
-        return create(getMaxId()+1, name,firtname,lastname,password,email,nickname,gender,status);
+    public int getCountUser(User user) {
+        String sql = "SELECT COUNT(Id) AS count_id FROM User WHERE UserName='"+user.getUserName()+"'";
+        try {
+            ResultSet resultSet = getConnection()
+                    .createStatement()
+                    .executeQuery(sql);
+            return resultSet.next() ?
+                    resultSet.getInt("count_id") : 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
-    public User create(int id, String name, String firtname, String lastname, String password, String email, String nickname, String gender, int status) {
-        return create(new User(id, name,firtname,lastname,password,email,nickname,gender,status));
+    public User create(String UserName, String FirstName, String LastName, String Password, String Email, String NickName, String Gender, int Status) {
+        return create(getMaxId()+1, UserName,FirstName,LastName,Password,Email,NickName,Gender,Status);
     }
 
-    public boolean update(int id, String name) {
+    public User create(int id, String UserName, String FirstName, String LastName, String Password, String Email, String NickName, String Gender, int Status) {
+        return create(new User(id, UserName,FirstName,LastName,Password,Email,NickName,Gender,Status));
+    }
+
+    public boolean update(int id, String FirstName, String LastName, String Email, String NickName, String Gender) {
         return executeUpdate(String.format(
-                "UPDATE %s SET UserName = '%s' WHERE Id_users = %d", getTableName(), name, id));
+                "UPDATE %s SET FirstName = '%s', LastName = '%s', Email = '%s', NickName = '%s', Gender = '%c' WHERE Id = %d",
+                getTableName(), FirstName,LastName,Email,NickName,Gender, id));
     }
 
     public boolean update(User user) {
-        return update(user.getId(), user.getUsername());
+        return update(user.getId(), user.getFirstName(),user.getLastName(),user.getEmail(),user.getNickName(),user.getGender());
     }
 
-    public boolean erase(int id) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE region_id = %d",
-                getTableName(), id));
-    }
 
-    public boolean erase(User user) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE region_id = %d",
-                getTableName(), user.getId()));
-    }
 }
 

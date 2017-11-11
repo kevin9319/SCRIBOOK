@@ -5,55 +5,46 @@ import java.sql.SQLException;
 
 public class Category {
 
-    private int Id_category;
-    private int IdObjeto;
-    private String Description;
-    private String Short_Description;
+    private int id;
+    private String description;
+    private String shortDescription;
     private int Status;
 
-    public Category(int id_category, int idObjeto, String description, String short_Description, int status) {
-        this.Id_category = id_category;
-        this.IdObjeto = idObjeto;
-        this.Description = description;
-        this.Short_Description = short_Description;
-        this.Status = status;
-    }
+
 
     public Category(){}
 
-    public int getId_category() {
-        return Id_category;
+    public Category(int id, String description, String shortDescription, int status) {
+        this.id = id;
+        this.description = description;
+        this.shortDescription = shortDescription;
+        Status = status;
     }
 
-    public Category setId_category(int id_category) {
-        this.Id_category = id_category;
-        return  this;
+    public int getId() {
+        return id;
     }
 
-    public int getIdObjeto() {
-        return IdObjeto;
-    }
-
-    public Category setIdObjeto(int idObjeto) {
-        this.IdObjeto = idObjeto;
-        return  this;
+    public Category setId(int id) {
+        this.id = id;
+        return this;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public Category setDescription(String description) {
-        this.Description = description;
-        return  this;
+        this.description = description;
+        return this;
     }
 
-    public String getShort_Description() {
-        return Short_Description;
+    public String getShortDescription() {
+        return shortDescription;
     }
 
-    public Category setShort_Description(String short_Description) {
-        this.Short_Description = short_Description;
+    public Category setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
         return this;
     }
 
@@ -62,22 +53,21 @@ public class Category {
     }
 
     public Category setStatus(int status) {
-        this.Status = status;
+        Status = status;
         return this;
     }
 
-    public static Category from(ResultSet rs)
-    {
+    public static Category from(ResultSet rs) {
         try {
             return new Category(
-                    rs.getInt("Id_category"),
-                    rs.getInt("IdObjeto"),
+                    rs.getInt("Id"),
                     rs.getString("Description"),
-                    rs.getString("Short_Description"),
+                    rs.getString("ShortDescription"),
                     rs.getInt("Status"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
+
     }
 }

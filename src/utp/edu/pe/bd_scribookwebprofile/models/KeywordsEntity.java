@@ -6,39 +6,46 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HistoriesEntity extends BaseEntity{
+public class KeywordsEntity extends BaseEntity {
 
-    public HistoriesEntity()
-    {
+    public KeywordsEntity() {
         super();
-        setTableName("Histories");
+        setTableName("keyword");
     }
 
-    public HistoriesEntity(Connection connection, String tableName) {
+    public KeywordsEntity(Connection connection, String tableName) {
         super(connection, tableName);
     }
 
-    public History findById(String id, CategoriesEntity categoriesEntity) {
+
+    public Keyword findById(int id) {
         return findByCriteria(
-                String.format("WHERE Id_Histories = '%s'", id), categoriesEntity).get(0);
+                String.format("WHERE id = %d", id)).get(0);
     }
 
-    public List<History> findByCriteria(String criteria, CategoriesEntity categoriesEntity) {
+    public List<Keyword> findByCriteria(String criteria) {
         try {
             ResultSet rs = getConnection()
                     .createStatement()
                     .executeQuery(
                             getBaseStatement()
                                     .concat(criteria));
-            List<History> historys = new ArrayList<>();
+            List<Keyword> keywords = new ArrayList<>();
             while(rs.next())
-                historys.add(History.from(rs, categoriesEntity));
+                keywords.add(Keyword.from(rs));
 
-            return historys;
+            return keywords;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
+
     }
+
+    public List<Keyword> findAll() {
+        return findByCriteria("");
+    }
+
+
 
 }

@@ -20,7 +20,12 @@ public class CategoriesEntity extends BaseEntity {
 
     public Category findById(int id) {
         return findByCriteria(
-                String.format("WHERE Id_category = %d", id)).get(0);
+                String.format("WHERE Id = %d", id)).get(0);
+    }
+
+
+    public List<Category> findAll() {
+        return findByCriteria("");
     }
 
     public List<Category> findByCriteria(String criteria) {
@@ -30,15 +35,14 @@ public class CategoriesEntity extends BaseEntity {
                     .executeQuery(
                             getBaseStatement()
                                     .concat(criteria));
-            List<Category> categorys = new ArrayList<>();
+            List<Category> categories = new ArrayList<>();
             while(rs.next())
-                categorys.add(Category.from(rs));
+                categories.add(Category.from(rs));
 
-            return categorys;
+            return categories;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
-
     }
 }
