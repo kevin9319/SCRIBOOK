@@ -101,12 +101,19 @@ public class ScDataStore {
         return getCategoriesEntity().findById(id);
     }
 
-
-
     public List<Category> findAllCategories() {
         return connection == null ? null: getCategoriesEntity().findAll();
     }
 
+    public boolean createCategory(Category category){ return getCategoriesEntity().add(category); }
+
+    public boolean deleteCategory(int id){
+        return getCategoriesEntity().delete(id);
+    }
+
+    public boolean updateCategory(Category category){
+        return getCategoriesEntity().update(category);
+    }
 
     //------------------Keyword-------------------------------------------------
 

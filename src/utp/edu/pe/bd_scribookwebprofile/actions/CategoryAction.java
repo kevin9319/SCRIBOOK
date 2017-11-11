@@ -8,6 +8,7 @@ public class CategoryAction  extends ActionSupport {
     private String description;
     private String shortDescription;
     private int Status;
+    private Category category;
 
     public int getId() {
         return id;
@@ -55,5 +56,30 @@ public class CategoryAction  extends ActionSupport {
             return INPUT;
         }
     }
+
+    public String add(){
+        category = new Category(id,description,shortDescription,Status);
+        try {
+            ScService service = new ScService();
+            service.createCategory(category);
+            return SUCCESS;
+        }catch(Exception e) {
+            e.printStackTrace();
+            return INPUT;
+        }
+    }
+
+    public String delete(){
+        try {
+            ScService service = new ScService();
+            service.deleteCategory(id);
+            return SUCCESS;
+        }catch (Exception e){
+            e.printStackTrace();
+            return INPUT;
+        }
+    }
+
+
 
 }

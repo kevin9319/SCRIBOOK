@@ -45,4 +45,26 @@ public class CategoriesEntity extends BaseEntity {
         }
         return null;
     }
+
+    public boolean add(Category category) {
+        String sql = "INSERT INTO category(description, shortdescription, status) " +
+                "VALUES(    " +
+                category.getDescription() + " , " +
+                category.getShortDescription() + " , " +
+                category.getStatus() +")";
+        return executeUpdate(sql);
+    }
+
+    public boolean delete(int id){
+        String sql = "DELETE FROM category WHERE id = " + id;
+        return executeUpdate(sql);
+    }
+
+    public boolean update(Category category){
+        String sql = "UPDATE category SET description = " + category.getDescription() + " , " +
+                "shortdescription = " + category.getShortDescription() + " , " +
+                "status = " + category.getStatus() +
+                " WHERE id = " + category.getId();
+        return executeUpdate(sql);
+    }
 }

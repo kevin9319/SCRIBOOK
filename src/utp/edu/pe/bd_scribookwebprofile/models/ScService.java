@@ -81,6 +81,18 @@ public class ScService {
 
     public List<Category> findAllCategories() { return dataStore.findAllCategories(); }
 
+    public boolean createCategory(Category category){
+        return getDataStore().createCategory(category);
+    }
+
+    public boolean deleteCategory(int id){
+        return getDataStore().deleteCategory(id);
+    }
+
+    public boolean updateCategory(Category category){
+        return getDataStore().updateCategory(category);
+    }
+
     //------------------Keyword----------------------------------------------------------------
 
 
