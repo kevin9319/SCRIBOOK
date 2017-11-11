@@ -103,5 +103,9 @@ public class StoriesEntity extends BaseEntity{
         return update(challenge.getId(), challenge.getTitle(),challenge.getDescription());
     }
 
+    public boolean delete(int id){
+        String sql = "DELETE FROM story WHERE id = " + id;
+        return executeUpdate(sql);
+    }
 
 }

@@ -1,4 +1,5 @@
 package utp.edu.pe.bd_scribookwebprofile.actions;
+import org.omg.PortableInterceptor.USER_EXCEPTION;
 import utp.edu.pe.bd_scribookwebprofile.models.*;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -13,7 +14,7 @@ public class StoryAction extends ActionSupport{
     private Date createDate;
     private int user;
     private int challenge;
-
+    private Story story;
 
     public int getId() {
         return id;
@@ -94,6 +95,17 @@ public class StoryAction extends ActionSupport{
         }
     }
 
+    public String createStory(){
+
+        try {
+            ScService service = new ScService();
+            service.createStory(title,description,scoreTotal,createDate,story.getUser(),story.getChallenge());
+            return SUCCESS;
+        }catch(Exception e) {
+            e.printStackTrace();
+            return INPUT;
+        }
+    }
 
     public String updateStory(){
         try {
@@ -106,7 +118,16 @@ public class StoryAction extends ActionSupport{
         }
     }
 
-
+    public String delete(){
+        try {
+            ScService service = new ScService();
+            service.deleteStory(id);
+            return SUCCESS;
+        }catch (Exception e){
+            e.printStackTrace();
+            return INPUT;
+        }
+    }
 
 
 

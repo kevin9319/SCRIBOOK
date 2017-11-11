@@ -7,14 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e75ddd9-edd2-4652-9591-ceae16f8cd2a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/footer.jsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources/febb7598-4812-4702-b44a-b419df90ab0a.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/CategoryAction.java" afterPath="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/CategoryAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/CategoriesEntity.java" afterPath="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/CategoriesEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/StoryAction.java" afterPath="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/StoryAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScDataStore.java" afterPath="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScDataStore.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScService.java" afterPath="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/StoriesEntity.java" afterPath="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/StoriesEntity.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,23 +43,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Category.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/Category.java">
+      <file leaf-file-name="StoriesEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/StoriesEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoriesEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/CategoriesEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="44" column="9" lean-forward="true" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+            <state relative-caret-position="693">
+              <caret line="105" column="25" lean-forward="false" selection-start-line="105" selection-start-column="19" selection-end-line="105" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1510437318237" expanded="true" signature="2848:2883" ph="SELECT MAX(I... story" />
               </folding>
             </state>
           </provider>
@@ -72,12 +59,13 @@
       <file leaf-file-name="ScDataStore.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScDataStore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="110" column="46" lean-forward="false" selection-start-line="110" selection-start-column="46" selection-end-line="110" selection-end-column="46" />
+            <state relative-caret-position="557">
+              <caret line="312" column="39" lean-forward="true" selection-start-line="312" selection-start-column="39" selection-end-line="312" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3420#3421#0" expanded="true" />
-                <element signature="e#3481#3482#0" expanded="true" />
+                <element signature="e#3310#3311#0" expanded="true" />
+                <element signature="e#3365#3366#0" expanded="true" />
+                <element signature="e#10443#10444#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,45 +74,35 @@
       <file leaf-file-name="ScService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <state relative-caret-position="679">
+              <caret line="197" column="37" lean-forward="false" selection-start-line="197" selection-start-column="37" selection-end-line="197" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2739#2740#0" expanded="true" />
-                <element signature="e#2801#2802#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoryAction.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StoryAction.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/StoryAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="641">
+              <caret line="121" column="13" lean-forward="true" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/CategoryAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="56" column="9" lean-forward="true" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+            <state relative-caret-position="291">
+              <caret line="60" column="48" lean-forward="true" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/footer.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="38" column="9" lean-forward="false" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -175,7 +153,6 @@
         <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/Score.java" />
         <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ChallengeEntity.java" />
         <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ChallengesKeywordsEntity.java" />
-        <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/StoriesEntity.java" />
         <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScoresEntity.java" />
         <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/WinnersEntity.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/error.jsp" />
@@ -184,7 +161,6 @@
         <option value="$PROJECT_DIR$/web/navbar.jsp" />
         <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/UsersEntity.java" />
         <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/UserAction.java" />
-        <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/StoryAction.java" />
         <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/ChallengeAction.java" />
         <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/KeywordAction.java" />
         <option value="$PROJECT_DIR$/src/struts.xml" />
@@ -195,10 +171,12 @@
         <option value="$PROJECT_DIR$/web/showStory.jsp" />
         <option value="$PROJECT_DIR$/web/showChallenge.jsp" />
         <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/CategoriesEntity.java" />
-        <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScDataStore.java" />
-        <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScService.java" />
         <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/CategoryAction.java" />
         <option value="$PROJECT_DIR$/web/footer.jsp" />
+        <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/StoriesEntity.java" />
+        <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScDataStore.java" />
+        <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScService.java" />
+        <option value="$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/StoryAction.java" />
       </list>
     </option>
   </component>
@@ -465,7 +443,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102871000" />
+    <option name="totallyTimeSpent" value="104501000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -607,6 +585,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="64" column="47" lean-forward="true" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#452#453#0" expanded="false" />
+            <element signature="e#477#478#0" expanded="false" />
+            <element signature="e#590#591#0" expanded="false" />
+            <element signature="e#619#620#0" expanded="false" />
+            <element signature="e#749#750#0" expanded="false" />
+            <element signature="e#777#778#0" expanded="false" />
+            <element signature="e#903#904#0" expanded="false" />
+            <element signature="e#930#931#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -669,23 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/Story.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/StoriesEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="98" column="96" lean-forward="false" selection-start-line="98" selection-start-column="96" selection-end-line="98" selection-end-column="96" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -782,16 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/StoryAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="75" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/KeywordAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-68">
@@ -828,45 +790,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScDataStore.java">
+    <entry file="file://$PROJECT_DIR$/web/footer.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="110" column="46" lean-forward="false" selection-start-line="110" selection-start-column="46" selection-end-line="110" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3420#3421#0" expanded="true" />
-            <element signature="e#3481#3482#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2739#2740#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state relative-caret-position="798">
+          <caret line="38" column="9" lean-forward="false" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/CategoriesEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="44" column="9" lean-forward="true" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -878,18 +806,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/footer.jsp">
+    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/Story.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="38" column="9" lean-forward="false" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+        <state relative-caret-position="725">
+          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="872">
+          <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/CategoriesEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/StoriesEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="105" column="25" lean-forward="false" selection-start-line="105" selection-start-column="19" selection-end-line="105" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1510437318237" expanded="true" signature="2848:2883" ph="SELECT MAX(I... story" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScDataStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="312" column="39" lean-forward="true" selection-start-line="312" selection-start-column="39" selection-end-line="312" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3310#3311#0" expanded="true" />
+            <element signature="e#3365#3366#0" expanded="true" />
+            <element signature="e#10443#10444#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/models/ScService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="197" column="37" lean-forward="false" selection-start-line="197" selection-start-column="37" selection-end-line="197" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/CategoryAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="56" column="9" lean-forward="true" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+        <state relative-caret-position="291">
+          <caret line="60" column="48" lean-forward="true" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utp/edu/pe/bd_scribookwebprofile/actions/StoryAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="121" column="13" lean-forward="true" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

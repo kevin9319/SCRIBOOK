@@ -194,6 +194,9 @@ public class ScService {
         return dataStore.updateStory(id, Title,Description);
     }
 
+    public boolean deleteStory(int id){
+        return dataStore.deleteStory(id);
+    }
 
 
     //------------------Score----------------------------------------------------------------

@@ -310,7 +310,9 @@ public class ScDataStore {
         return updateStory(story.getId(),story.getTitle(),story.getDescription());
     }
 
-
+    public boolean deleteStory(int id){
+        return getStoriesEntity().delete(id);
+    }
 
     //------------------Score------------------------------------------------------------------------
 
