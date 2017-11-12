@@ -48,7 +48,7 @@
         <result name="input">error.jsp</result>
     </action>
 
-    <action name="searchStory" class="utp.edu.pe.bd_scribookwebprofile.actions.StoryAction">
+    <action name="searchStory" class="utp.edu.pe.bd_scribookwebprofile.actions.StoryAction" method="searchStory">
         <result name="success">showStory.jsp</result>
         <result name="input">error.jsp</result>
     </action>
@@ -58,6 +58,10 @@
         <result name="input">error.jsp</result>
     </action>
 
+    <action name="createStory" class="utp.edu.pe.bd_scribookwebprofile.actions.StoryAction" method="createStory">
+        <result name="success">createStory.jsp</result>
+        <result name="input">error.jsp</result>
+    </action>
 
 
 </package>
