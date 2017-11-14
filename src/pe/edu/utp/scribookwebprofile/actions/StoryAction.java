@@ -1,6 +1,5 @@
-package utp.edu.pe.bd_scribookwebprofile.actions;
-import org.omg.PortableInterceptor.USER_EXCEPTION;
-import utp.edu.pe.bd_scribookwebprofile.models.*;
+package pe.edu.utp.scribookwebprofile.actions;
+import pe.edu.utp.scribookwebprofile.models.*;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.sql.Date;

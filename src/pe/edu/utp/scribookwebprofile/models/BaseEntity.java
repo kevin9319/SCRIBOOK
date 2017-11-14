@@ -1,4 +1,4 @@
-package utp.edu.pe.bd_scribookwebprofile.models;
+package pe.edu.utp.scribookwebprofile.models;
 
 import java.sql.Connection;
 import java.sql.SQLException;

@@ -1,5 +1,5 @@
-package utp.edu.pe.bd_scribookwebprofile.actions;
-import utp.edu.pe.bd_scribookwebprofile.models.*;
+package pe.edu.utp.scribookwebprofile.actions;
+import pe.edu.utp.scribookwebprofile.models.*;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserAction extends ActionSupport {
@@ -13,7 +13,15 @@ public class UserAction extends ActionSupport {
     private String nickName;
     private String gender;
     private int status;
+    private int acti;
 
+    public int getActi() {
+        return acti;
+    }
+
+    public void setActi(int acti) {
+        this.acti = acti;
+    }
 
     public int getId() {
         return id;
@@ -89,39 +97,24 @@ public class UserAction extends ActionSupport {
 
 
     public String execute() {
+        id=0;
+
+        if (acti==1) {
+            ScService scservice = new ScService();
+            User user = scservice.findUserByNamePassword(userName, password);
+            id=user.getId();
+            userName=user.getUserName();
+        }
+
+        if (acti==2) {
+            id = 0;
+            userName = "";
+        }
+
+
         return SUCCESS;
     }
 
-
-    public String addUser(){
-        try {
-            ScService service = new ScService();
-            User user = service.createUser(getUserName(), getFirstName(),getLastName(),getPassword(),getEmail(),getNickName(),getGender(),getStatus());
-            return SUCCESS;
-        }catch (Exception e){
-            e.printStackTrace();
-            return INPUT;
-        }
-    }
-
-    public String login(){
-        try {
-                ScService scservice = new ScService();
-                User user = scservice.findUserByNamePassword(userName, password);
-                id=user.getId();
-                userName=user.getUserName();
-                return SUCCESS;
-        }catch (Exception e){
-            e.printStackTrace();
-            return INPUT;
-        }
-    }
-
-    public String logout(){
-        id = 0;
-        userName = "";
-        return SUCCESS;
-    }
 
 
 }

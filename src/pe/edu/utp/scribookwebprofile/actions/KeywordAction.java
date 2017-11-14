@@ -1,8 +1,7 @@
-package utp.edu.pe.bd_scribookwebprofile.actions;
-import utp.edu.pe.bd_scribookwebprofile.models.*;
+package pe.edu.utp.scribookwebprofile.actions;
+import pe.edu.utp.scribookwebprofile.models.*;
 import com.opensymphony.xwork2.ActionSupport;
 
-import java.sql.Date;
 public class KeywordAction extends ActionSupport{
 
     private int id;

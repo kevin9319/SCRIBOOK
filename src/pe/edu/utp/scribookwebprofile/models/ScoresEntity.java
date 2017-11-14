@@ -1,7 +1,6 @@
-package utp.edu.pe.bd_scribookwebprofile.models;
+package pe.edu.utp.scribookwebprofile.models;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

@@ -8,7 +8,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<s:if test="%{id==0}">
+    <s:set var="user_id" value="id" scope="session"/>
+    <s:set var="user_name" value="userName" scope="session"/>
+</s:if>
 
 
 <h1>SCRIBOOK</h1>
@@ -18,9 +21,10 @@
     <li>
         <a href="#"><b>Ingresa:</b></a>
         Iniciar Sesión:
-                        <s:form action="login">
+                        <s:form action="user">
                             <s:textfield  name="userName" placeholder="Usuario" size="100%"/>
                             <s:password name="password" placeholder="Contraseña" size="100%"/>
+                            <s:hidden name="acti" value="1"/>
                             <s:submit value="Iniciar sesión"/>
                         </s:form>
                     </div>
@@ -34,5 +38,9 @@
 </s:if>
 <s:if test="%{#session.user_id>0}">
     <li><p>Hola, <s:property value="#session.user_name"/> </p></li>
-    <li><a href="<s:url action="logout"/>">Salir</a></li>
+    <s:form action="user">
+        <s:hidden name="acti" value="2"/>
+        <s:submit value="Salir"/>
+    </s:form>
+
 </s:if>

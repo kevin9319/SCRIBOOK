@@ -1,14 +1,34 @@
-package utp.edu.pe.bd_scribookwebprofile.actions;
-import utp.edu.pe.bd_scribookwebprofile.models.*;
+package pe.edu.utp.scribookwebprofile.actions;
+import pe.edu.utp.scribookwebprofile.models.*;
 import com.opensymphony.xwork2.ActionSupport;
 
+import java.util.List;
 public class CategoryAction  extends ActionSupport {
-
     private int id;
     private String description;
     private String shortDescription;
     private int Status;
-    private Category category;
+
+    private List<Category> categories;
+
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    private int act;
+
+    public int getAct() {
+        return act;
+    }
+
+    public void setAct(int act) {
+        this.act = act;
+    }
 
     public int getId() {
         return id;
@@ -42,14 +62,12 @@ public class CategoryAction  extends ActionSupport {
         Status = status;
     }
 
-    public String execute() {
-        return SUCCESS;
-    }
+
+
+
 
     public String showCategory(){
         try {
-            ScService scservice = new ScService();
-            scservice.findAllCategories();
             return SUCCESS;
         }catch (Exception e){
             e.printStackTrace();
@@ -58,7 +76,7 @@ public class CategoryAction  extends ActionSupport {
     }
 
     public String add(){
-        category = new Category(id,description,shortDescription,Status);
+        Category category = new Category(id,description,shortDescription,Status);
         try {
             ScService service = new ScService();
             service.createCategory(category);
@@ -81,5 +99,28 @@ public class CategoryAction  extends ActionSupport {
     }
 
 
+    public String execute() {
+        if (act==1) {
+            ScService service = new ScService();
+            Category category = service.findCategoryById(1);
+            id = category.getId();
+            description = category.getDescription();
+        }
+
+        if (act==2) {
+            ScService service = new ScService();
+            Category category = service.findCategoryById(2);
+            id = category.getId();
+            description = category.getDescription();
+        }
+
+        if (act==3) {
+            ScService service = new ScService();
+            categories= service.findAllCategories();
+        }
+
+
+        return SUCCESS;
+    }
 
 }
