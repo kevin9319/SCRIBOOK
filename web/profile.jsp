@@ -1,19 +1,16 @@
-<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
-  User: Administrador
-  Date: 08/11/2017
-  Time: 11:00 AM
+  User: Junior Cabrera
+  Date: 14/11/2017
+  Time: 10:32 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Regístrate</title>
+    <title>Title</title>
 </head>
 <body>
-<div>
 
-</div>
 </body>
 </html>

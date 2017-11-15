@@ -17,7 +17,7 @@
 
 
     <action name="user" class="pe.edu.utp.scribookwebprofile.actions.UserAction">
-        <result name="success">categories.jsp</result>
+        <result name="success">index.jsp</result>
         <result name="input">error.jsp</result>
     </action>
 

@@ -2,7 +2,16 @@ package pe.edu.utp.scribookwebprofile.actions;
 import pe.edu.utp.scribookwebprofile.models.*;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class UserAction extends ActionSupport {
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.dispatcher.SessionMap;
+import org.apache.struts2.interceptor.SessionAware;
+
+
+public class UserAction extends ActionSupport implements SessionAware{
 
     private int id;
     private String userName;
@@ -14,6 +23,13 @@ public class UserAction extends ActionSupport {
     private String gender;
     private int status;
     private int acti;
+
+
+    private SessionMap<String,Object> sessionMap;
+
+    public void setSession(Map<String, Object> map) {
+        sessionMap = (SessionMap<String, Object>) map;
+    }
 
     public int getActi() {
         return acti;
@@ -100,15 +116,27 @@ public class UserAction extends ActionSupport {
         id=0;
 
         if (acti==1) {
-            ScService scservice = new ScService();
-            User user = scservice.findUserByNamePassword(userName, password);
-            id=user.getId();
-            userName=user.getUserName();
+            HttpSession session = ServletActionContext.getRequest().getSession(true);
+
+            try {
+                ScService scservice = new ScService();
+                User user = scservice.findUserByNamePassword(userName, password);
+                id=user.getId();
+                userName=user.getUserName();
+                sessionMap.put("userId", id);
+                sessionMap.put("userUserName", userName);
+                return SUCCESS;
+            }catch (Exception e){
+                e.printStackTrace();
+                return "input";
+            }
+
         }
 
         if (acti==2) {
-            id = 0;
-            userName = "";
+            sessionMap.remove("userId");
+            sessionMap.remove("userUserName");
+            sessionMap.invalidate();
         }
 
 
