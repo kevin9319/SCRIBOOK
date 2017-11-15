@@ -1,10 +1,12 @@
 package pe.edu.utp.scribookwebprofile.actions;
 
-
 import pe.edu.utp.scribookwebprofile.models.*;
 import com.opensymphony.xwork2.ActionSupport;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 public class ChallengeAction extends ActionSupport{
 
@@ -14,9 +16,17 @@ public class ChallengeAction extends ActionSupport{
     private int status;
     private Date createDate;
     private Date lastDate;
-    private int category;
-    private int user;
+    private Category category;
+    private User user;
+    private String dateeeee;
 
+    public String getDateeeee() {
+        return dateeeee;
+    }
+
+    public void setDateeeee(String dateeeee) {
+        this.dateeeee = dateeeee;
+    }
 
     public int getId() {
         return id;
@@ -66,31 +76,35 @@ public class ChallengeAction extends ActionSupport{
         this.lastDate = lastDate;
     }
 
-    public int getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
-    public int getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(int user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
-
     public String execute() {
+
+            ScService scservice = new ScService();
+            scservice.createChallenge(title,description,status,createDate,lastDate,category,user);
+
+
         return SUCCESS;
     }
 
     public String showChallenge(){
         try {
             ScService scservice = new ScService();
-            Challenge challenge = scservice.findChallengeByCategory(category);
+            Challenge challenge = scservice.findChallengeByCategory(category.getId());
             return SUCCESS;
         }catch (Exception e){
             e.printStackTrace();
