@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,11 +54,10 @@ public class ChallengeEntity extends BaseEntity{
     }
 
 
-
     public Challenge create(Challenge challenge) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(Id, Title, Description, Status, CreateDate, LastDate, Category, User) VALUES(%d, '%s','%s',%d,'%tF','%tF',%d,%d)",
-                getTableName(),challenge.getId(),challenge.getTitle(),challenge.getStatus(),challenge.getCreateDate(),challenge.getLastDate(),challenge.getCategory().getId(),challenge.getUser().getId())) ?
+                "INSERT INTO %s(Title, Description, Status,CreateDate,LastDate, Category, User) VALUES('%s','%s',%d,CURDATE(),' " + challenge.getLastDate() +" ',%d,%d)",
+                getTableName(),challenge.getTitle(),challenge.getDescription(),1,challenge.getCategory().getId(),challenge.getUser().getId())) ?
                 challenge : null;
     }
 

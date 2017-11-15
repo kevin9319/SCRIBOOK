@@ -17,14 +17,14 @@
 
 
     <action name="user" class="pe.edu.utp.scribookwebprofile.actions.UserAction">
-        <result name="success">categories.jsp</result>
+        <result name="success">index.jsp</result>
         <result name="input">error.jsp</result>
     </action>
 
-
-
-
-
+    <action name="challenge" class="pe.edu.utp.scribookwebprofile.actions.ChallengeAction">
+        <result name="success">challenge.jsp</result>
+        <result name="input">error.jsp</result>
+    </action>
 
     <action name="showChallenge" class="pe.edu.utp.scribookwebprofile.actions.ChallengeAction" method="showChallenge">
         <result name="success">showStory.jsp</result>
