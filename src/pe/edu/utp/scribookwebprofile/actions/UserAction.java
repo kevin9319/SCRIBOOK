@@ -115,6 +115,7 @@ public class UserAction extends ActionSupport implements SessionAware{
     public String execute() {
         id=0;
 
+        //Iniciar Sesión
         if (acti==1) {
             HttpSession session = ServletActionContext.getRequest().getSession(true);
 
@@ -133,10 +134,20 @@ public class UserAction extends ActionSupport implements SessionAware{
 
         }
 
+        //Cerrar Sesión
         if (acti==2) {
             sessionMap.remove("userId");
             sessionMap.remove("userUserName");
             sessionMap.invalidate();
+        }
+
+
+        //Registrar Usuario
+        if (acti==3) {
+            status=1;
+            nickName=userName;
+            ScService scservice = new ScService();
+            User user=scservice.createUser(userName,firstName,lastName,password,email,nickName,gender,status);
         }
 
 

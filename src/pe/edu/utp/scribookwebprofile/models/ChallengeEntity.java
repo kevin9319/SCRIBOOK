@@ -26,11 +26,6 @@ public class ChallengeEntity extends BaseEntity{
     }
 
 
-    public Challenge findByCategory(int id, CategoriesEntity categoriesEntity, UsersEntity usersEntity) {
-        return findByCriteria(
-                String.format("WHERE Category = %d", id), categoriesEntity, usersEntity).get(0);
-    }
-
     public List<Challenge> findByCriteria(String criteria, CategoriesEntity categoriesEntity, UsersEntity usersEntity) {
         try {
             ResultSet rs = getConnection()
@@ -53,6 +48,10 @@ public class ChallengeEntity extends BaseEntity{
         return findByCriteria("", categoriesEntity,usersEntity);
     }
 
+    public List<Challenge> findByCategory(int id, CategoriesEntity categoriesEntity, UsersEntity usersEntity) {
+        return findByCriteria(
+                String.format("WHERE Category = %d", id), categoriesEntity, usersEntity);
+    }
 
     public Challenge create(Challenge challenge) {
         return executeUpdate(String.format(

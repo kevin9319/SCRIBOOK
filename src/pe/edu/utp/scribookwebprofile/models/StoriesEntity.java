@@ -29,9 +29,9 @@ public class StoriesEntity extends BaseEntity{
                 String.format("WHERE User = %d", id), challengeEntity, usersEntity, categoriesEntity).get(0);
     }
 
-    public Story findByChallenge(int id,ChallengeEntity challengeEntity, UsersEntity usersEntity,CategoriesEntity categoriesEntity) {
+    public List<Story> findByChallenge(int id,ChallengeEntity challengeEntity, UsersEntity usersEntity,CategoriesEntity categoriesEntity) {
         return findByCriteria(
-                String.format("WHERE Challenge = %d", id), challengeEntity, usersEntity, categoriesEntity).get(0);
+                String.format("WHERE Challenge = %d", id), challengeEntity, usersEntity, categoriesEntity);
     }
 
 

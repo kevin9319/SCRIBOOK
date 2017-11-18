@@ -152,9 +152,8 @@ public class ScDataStore {
         return getChallengeEntity().findById(id,getCategoriesEntity(),getUsersEntity());
     }
 
-    public Challenge findChallengeByCategory(int id) {
-        if(connection == null) return null;
-        return getChallengeEntity().findByCategory(id,getCategoriesEntity(),getUsersEntity());
+    public List<Challenge> findChallengeByCategory(int id) {
+        return connection == null ? null: getChallengeEntity().findByCategory(id,getCategoriesEntity(),getUsersEntity());
     }
 
 
@@ -282,10 +281,10 @@ public class ScDataStore {
         return getStoriesEntity().findByUser(id,getChallengeEntity(),getUsersEntity(),getCategoriesEntity());
     }
 
-    public Story findStoryByChallenge(int id) {
-        if(connection == null) return null;
-        return getStoriesEntity().findByChallenge(id,getChallengeEntity(),getUsersEntity(),getCategoriesEntity());
+    public List<Story> findStoryByChallenge(int id) {
+        return connection == null ? null: getStoriesEntity().findByChallenge(id,getChallengeEntity(),getUsersEntity(),getCategoriesEntity());
     }
+
 
     public Story findStoryByTitleORStory(String TitleORStory) {
         if(connection == null) return null;

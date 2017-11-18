@@ -109,7 +109,7 @@ public class ScService {
         return dataStore.findChallengeById(id);
     }
 
-    public Challenge findChallengeByCategory(int id) {
+    public List<Challenge> findChallengeByCategory(int id) {
         return dataStore.findChallengeByCategory(id);
     }
 
@@ -178,7 +178,7 @@ public class ScService {
         return dataStore.findStoryByUser(id);
     }
 
-    public Story findStoryByChallenge(int id) {
+    public List<Story> findStoryByChallenge(int id) {
         return dataStore.findStoryByChallenge(id);
     }
 

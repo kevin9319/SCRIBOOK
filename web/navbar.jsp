@@ -26,19 +26,114 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
-                <jsp:useBean id="service" class="pe.edu.utp.scribookwebprofile.models.ScService"/>
-
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorías <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <c:forEach var="category" items="${service.findAllCategories()}">
-                            <li><c:out value="${category.description}"/></li>
-                            <li role="separator" class="divider"></li>
-                        </c:forEach>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="1"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Aventura" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="2"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Biográfica" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="3"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Ciencia Ficción" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="4"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Deportes" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="5"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Erótica" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="6"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Infantil" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="7"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Investigación" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="8"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Policial" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="9"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Romántica" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="10"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Sociedad" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="11"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Terror" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="12"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Viajes" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="13"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Vampiros" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+                        <li>
+                            <s:form action="challenge">
+                                <s:hidden name="category.id" value="14"/>
+                                <s:hidden name="chAct" value="1"/>
+                                <s:submit value="Zombies" type="button" cssClass="btn btn-default"/>
+                            </s:form>
+                        </li>
+
+
                     </ul>
                 </li>
-                <li><a href="#">Link</a></li>
+
+                <li><a href="#">Buscar</a></li>
             </ul>
 
 
@@ -66,4 +161,3 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-

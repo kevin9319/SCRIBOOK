@@ -7,6 +7,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 public class ChallengeAction extends ActionSupport{
 
@@ -18,7 +19,27 @@ public class ChallengeAction extends ActionSupport{
     private Date lastDate;
     private Category category;
     private User user;
+    private int chAct;
     private String dateeeee;
+    private List<Challenge> challenges;
+
+    public List<Challenge> getChallenges() {
+        return challenges;
+    }
+
+    public void setChallenges(List<Challenge> challenges) {
+        this.challenges = challenges;
+    }
+
+    public int getChAct() {
+        return chAct;
+    }
+
+    public void setChAct(int chAct) {
+        this.chAct = chAct;
+    }
+
+
 
     public String getDateeeee() {
         return dateeeee;
@@ -94,21 +115,23 @@ public class ChallengeAction extends ActionSupport{
 
     public String execute() {
 
-            ScService scservice = new ScService();
-            scservice.createChallenge(title,description,status,createDate,lastDate,category,user);
+            //ScService scservice = new ScService();
+            //scservice.createChallenge(title,description,status,createDate,lastDate,category,user);
+        //Buscar los retos por categoria
+        if (chAct==1) {
+                ScService service = new ScService();
+                challenges=service.findChallengeByCategory(category.getId());
+        }
 
+        //Crear reto
+        if (chAct==2) {
+            ScService service = new ScService();
+            service.createChallenge(title,description,status,createDate,lastDate,category,user);
+        }
 
         return SUCCESS;
     }
 
-    public String showChallenge(){
-        try {
-            ScService scservice = new ScService();
-            Challenge challenge = scservice.findChallengeByCategory(category.getId());
-            return SUCCESS;
-        }catch (Exception e){
-            e.printStackTrace();
-            return INPUT;
-        }
-    }
+
+
 }

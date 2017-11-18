@@ -66,13 +66,12 @@
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
-<h1>Crear Reto:</h1>
+<h1>Crear Historieta:</h1>
 
 <s:form action="challenge">
     <s:textfield name="title" placeholder="Titulo" size="100%"/>
-    <s:textfield name="description" placeholder="Descripcion" size="100%"/>
-    <s:textfield name="lastDate" id="datepicker" placeholder="Seleccionar Fecha:"/>
-    <s:submit value="Crear Reto"/>
+    <s:textarea name="description" placeholder="Historieta" size="100%"/>
+    <s:submit value="Crear Historieta"/>
 </s:form>
 
 
@@ -89,3 +88,4 @@
 
 </body>
 </html>
+

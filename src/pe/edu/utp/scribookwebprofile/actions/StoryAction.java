@@ -3,6 +3,7 @@ import pe.edu.utp.scribookwebprofile.models.*;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.sql.Date;
+import java.util.List;
 
 public class StoryAction extends ActionSupport{
 
@@ -11,9 +12,29 @@ public class StoryAction extends ActionSupport{
     private String description;
     private int scoreTotal;
     private Date createDate;
-    private int user;
-    private int challenge;
-    private Story story;
+    private User user;
+    private Challenge challenge;
+
+    private int chStory;
+
+    private List<Story> stories;
+
+
+    public List<Story> getStories() {
+        return stories;
+    }
+
+    public void setStories(List<Story> stories) {
+        this.stories = stories;
+    }
+
+    public int getChStory() {
+        return chStory;
+    }
+
+    public void setChStory(int chStory) {
+        this.chStory = chStory;
+    }
 
     public int getId() {
         return id;
@@ -55,77 +76,32 @@ public class StoryAction extends ActionSupport{
         this.createDate = createDate;
     }
 
-    public int getUser() {
+
+    public User getUser() {
         return user;
     }
 
-    public void setUser(int user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
-    public int getChallenge() {
+    public Challenge getChallenge() {
         return challenge;
     }
 
-    public void setChallenge(int challenge) {
+    public void setChallenge(Challenge challenge) {
         this.challenge = challenge;
     }
 
     public String execute() {
+        //Buscar todas las historias relacionadas a un reto
+        if (chStory==1) {
+            ScService service = new ScService();
+            stories=service.findStoryByChallenge(challenge.getId());
+        }
+
+
         return SUCCESS;
-    }
-
-
-    public String showStory(){
-        try {
-            ScService scservice = new ScService();
-            Story story = scservice.findStoryByChallenge(id);
-            id=story.getId();
-            title=story.getTitle();
-            description=story.getDescription();
-            scoreTotal=story.getScoreTotal();
-            createDate=story.getCreateDate();
-            user=story.getUser().getId();
-            challenge=story.getChallenge().getId();
-            return SUCCESS;
-        }catch (Exception e){
-            e.printStackTrace();
-            return INPUT;
-        }
-    }
-
-    public String createStory(){
-
-        try {
-            ScService service = new ScService();
-            service.createStory(title,description,scoreTotal,createDate,story.getUser(),story.getChallenge());
-            return SUCCESS;
-        }catch(Exception e) {
-            e.printStackTrace();
-            return INPUT;
-        }
-    }
-
-    public String updateStory(){
-        try {
-            ScService scservice = new ScService();
-            scservice.updateStory(id,getTitle(),getDescription());
-            return SUCCESS;
-        }catch (Exception e){
-            e.printStackTrace();
-            return INPUT;
-        }
-    }
-
-    public String delete(){
-        try {
-            ScService service = new ScService();
-            service.deleteStory(id);
-            return SUCCESS;
-        }catch (Exception e){
-            e.printStackTrace();
-            return INPUT;
-        }
     }
 
 
