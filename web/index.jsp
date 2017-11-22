@@ -10,20 +10,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SCRIBOOK</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
+
+
 </head>
 <body>
 
-
 <jsp:include page="navbar.jsp"/>
+<h3 class="bg-success"><s:property value="msgalerta"/></h3>
 
 <div class="container">
 <div class="row">
@@ -51,7 +56,7 @@
                 <s:textfield placeholder="Usuario" cssClass="form-control" name="userName"/>
                 <s:textfield placeholder="Nombres" cssClass="form-control" name="firstName"/>
                 <s:textfield placeholder="Apellidos" cssClass="form-control" name="lastName"/>
-                <s:textfield placeholder="Sexo" cssClass="form-control" name="gender"/>
+                <s:radio list="{'Masculino','Femenino'}" name="gender"></s:radio>
                 <s:textfield placeholder="Correo electrónico" cssClass="form-control" name="email" type="email"/>
                 <s:password placeholder="Contraseña" cssClass="form-control" name="password" type="password"/>
                 <s:hidden name="acti" value="3"/>

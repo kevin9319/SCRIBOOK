@@ -133,7 +133,13 @@
                     </ul>
                 </li>
 
-                <li><a href="#">Buscar</a></li>
+                <s:if test="%{#session.userId>0}">
+                                <li><s:form action="Createchallenge">
+                                    <s:hidden name="chAct" value="3"/>
+                                    <s:submit value="Crear Nuevo Reto" type="button" cssClass="btn btn-default"/>
+                                </s:form></li>
+                </s:if>
+
             </ul>
 
 

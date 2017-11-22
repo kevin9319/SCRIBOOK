@@ -1,5 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrador
@@ -8,8 +8,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Retos</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
@@ -19,9 +24,12 @@
 <jsp:include page="navbar.jsp"/>
 
 <h1>Retos</h1>
-<s:if test="%{#session.userId>0}">
-<a href="challenge.jsp">Crear Nuevo Reto</a>
-</s:if>
+<h2>Categoría: <s:property value="category.description"/> </h2>
+<h2>Descripción: <s:property value="category.shortDescription"/> </h2>
+
+
+
+
 <div class="row">
 
 
@@ -49,7 +57,7 @@
 </s:iterator>
 
 
-
+</div>
 
 
 <jsp:include page="footer.jsp"/>

@@ -22,6 +22,25 @@ public class ChallengeAction extends ActionSupport{
     private int chAct;
     private String dateeeee;
     private List<Challenge> challenges;
+    private List<Category> categories;
+    private String msgalerta;
+
+
+    public String getMsgalerta() {
+        return msgalerta;
+    }
+
+    public void setMsgalerta(String msgalerta) {
+        this.msgalerta = msgalerta;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 
     public List<Challenge> getChallenges() {
         return challenges;
@@ -121,13 +140,29 @@ public class ChallengeAction extends ActionSupport{
         if (chAct==1) {
                 ScService service = new ScService();
                 challenges=service.findChallengeByCategory(category.getId());
+
+                category=service.findCategoryById(category.getId());
+
+
+
         }
 
         //Crear reto
         if (chAct==2) {
             ScService service = new ScService();
             service.createChallenge(title,description,status,createDate,lastDate,category,user);
+            msgalerta="Reto Creado";
         }
+
+
+        //Mostrar Categorias
+        if (chAct==3) {
+            ScService service = new ScService();
+            categories=service.findAllCategories();
+
+        }
+
+
 
         return SUCCESS;
     }

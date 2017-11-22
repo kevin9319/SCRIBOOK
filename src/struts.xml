@@ -10,6 +10,8 @@
 
 
 
+
+
     <action name="category" class="pe.edu.utp.scribookwebprofile.actions.CategoryAction">
         <result name="success">categories.jsp</result>
         <result name="input">error.jsp</result>
@@ -28,6 +30,16 @@
 
     <action name="story" class="pe.edu.utp.scribookwebprofile.actions.StoryAction">
         <result name="success">showStory.jsp</result>
+        <result name="input">error.jsp</result>
+    </action>
+
+    <action name="Createchallenge" class="pe.edu.utp.scribookwebprofile.actions.ChallengeAction">
+        <result name="success">challenge.jsp</result>
+        <result name="input">error.jsp</result>
+    </action>
+
+    <action name="addchallenge" class="pe.edu.utp.scribookwebprofile.actions.ChallengeAction">
+        <result name="success">index.jsp</result>
         <result name="input">error.jsp</result>
     </action>
 

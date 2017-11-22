@@ -9,7 +9,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserAction extends ActionSupport implements SessionAware{
 
@@ -24,6 +25,15 @@ public class UserAction extends ActionSupport implements SessionAware{
     private int status;
     private int acti;
 
+
+
+    public SessionMap<String, Object> getSessionMap() {
+        return sessionMap;
+    }
+
+    public void setSessionMap(SessionMap<String, Object> sessionMap) {
+        this.sessionMap = sessionMap;
+    }
 
     private SessionMap<String,Object> sessionMap;
 
@@ -144,15 +154,24 @@ public class UserAction extends ActionSupport implements SessionAware{
 
         //Registrar Usuario
         if (acti==3) {
+            ScService scservice = new ScService();
             status=1;
             nickName=userName;
-            ScService scservice = new ScService();
+            if (gender.equals("Masculino")){
+                gender="M";
+            }
+            if (gender.equals("Femenino")){
+                gender="F";
+            }
+
             User user=scservice.createUser(userName,firstName,lastName,password,email,nickName,gender,status);
         }
 
 
         return SUCCESS;
     }
+
+
 
 
 

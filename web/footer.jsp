@@ -10,13 +10,13 @@
 <footer class="modal-footer bg-primary">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <h5>Sobre nosotros</h5>
+            <div class="col-sm-4 ">
+                <h5 class="text-center">Sobre SCRIBOOK</h5>
                 <ul>
-                    <li>NAVARRO ALFARO, Kevin.</li>
-                    <li>CABRERA SANCHEZ, Junior Jesús.</li>
-                    <li>CHUQUILLANQUI QUITO, Mery.</li>
-                    <li>CONDE YANGALI, Anggelo.</li>
+                    <p class="text-center"> Una Aplicación Web que permite la creación de cuentos de forma sencilla.
+                        En unos pocos pasos las personas podrán leer tus cuentos y entretenerse con ellas.</p>
+
+
 
                 </ul>
             </div>

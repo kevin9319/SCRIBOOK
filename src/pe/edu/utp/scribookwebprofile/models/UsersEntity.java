@@ -54,8 +54,8 @@ public class UsersEntity extends BaseEntity{
 
     public User create(User user) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(UserName, FirstName, LastName, Password, Email, NickName, Gender, Status) VALUES('%s','%s','%s','%s','%s','%s','F',%d)",
-                getTableName(), user.getUserName(),user.getFirstName(),user.getLastName(),user.getPassword(),user.getEmail(),user.getNickName(),user.getStatus())) ?
+                "INSERT INTO %s(UserName, FirstName, LastName, Password, Email, NickName, Gender, Status) VALUES('%s','%s','%s','%s','%s','%s','%s',%d)",
+                getTableName(), user.getUserName(),user.getFirstName(),user.getLastName(),user.getPassword(),user.getEmail(),user.getNickName(),user.getGender(),user.getStatus())) ?
                 user : null;
     }
 
