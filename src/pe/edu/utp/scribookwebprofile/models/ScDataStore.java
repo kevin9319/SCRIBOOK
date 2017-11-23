@@ -161,6 +161,10 @@ public class ScDataStore {
         return connection == null ? null: getChallengeEntity().findAll(getCategoriesEntity(),getUsersEntity());
     }
 
+    public List<Challenge> findChallengeByUser(int id) {
+        return connection == null ? null: getChallengeEntity().findByUser(id,getCategoriesEntity(),getUsersEntity());
+    }
+
     public Challenge createChallenge(String Title, String Description, int Status, Date CreateDate, Date LastDate,Category category, User user) {
         return connection == null ?
                 null :
@@ -276,9 +280,9 @@ public class ScDataStore {
         return getStoriesEntity().findById(id,getChallengeEntity(),getUsersEntity(),getCategoriesEntity());
     }
 
-    public Story findStoryByUser(int id) {
-        if(connection == null) return null;
-        return getStoriesEntity().findByUser(id,getChallengeEntity(),getUsersEntity(),getCategoriesEntity());
+    public List<Story> findStoryByUser(int id) {
+        return connection == null ? null: getStoriesEntity().findByUser(id,getChallengeEntity(),getUsersEntity(),getCategoriesEntity());
+
     }
 
     public List<Story> findStoryByChallenge(int id) {
@@ -286,9 +290,9 @@ public class ScDataStore {
     }
 
 
-    public Story findStoryByTitleORStory(String TitleORStory) {
-        if(connection == null) return null;
-        return getStoriesEntity().findByTitleORStory(TitleORStory,getChallengeEntity(),getUsersEntity(),getCategoriesEntity());
+    public List<Story> findStoryByTitleORStory(String TitleORStory) {
+        return connection == null ? null: getStoriesEntity().findByTitleORStory(TitleORStory,getChallengeEntity(),getUsersEntity(),getCategoriesEntity());
+
     }
 
 
@@ -308,6 +312,17 @@ public class ScDataStore {
     public boolean updateStory(Story story) {
         return updateStory(story.getId(),story.getTitle(),story.getDescription());
     }
+
+    public boolean updateStoryScore(int id) {
+        return connection == null ?
+                false :
+                getStoriesEntity().updatescore(id);
+    }
+
+    public boolean updateStoryScore(Story story) {
+        return updateStoryScore(story.getId());
+    }
+
 
     public boolean deleteStory(int id){
         return getStoriesEntity().delete(id);
@@ -340,15 +355,15 @@ public class ScDataStore {
     }
 
 
-    public int getScoreCountScore(Story story) {
+    public int getScoreCountScore(int id) {
         if(connection == null) return 0;
-        return getScoresEntity().getCountScore(story);
+        return getScoresEntity().getCountScore(id);
     }
 
 
-    public int getScoreCountUser(User user) {
+    public int getScoreCountUser(Story story,User user) {
         if(connection == null) return 0;
-        return getScoresEntity().getCountUser(user);
+        return getScoresEntity().getCountUser(story,user);
     }
 
     public boolean updateScore(int id, int Status) {

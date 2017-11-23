@@ -134,8 +134,14 @@ public class UserAction extends ActionSupport implements SessionAware{
                 User user = scservice.findUserByNamePassword(userName, password);
                 id=user.getId();
                 userName=user.getUserName();
+                firstName=user.getFirstName();
+                lastName=user.getLastName();
+                email=user.getEmail();
                 sessionMap.put("userId", id);
                 sessionMap.put("userUserName", userName);
+                sessionMap.put("userFirstName", firstName);
+                sessionMap.put("userLastName", lastName);
+                sessionMap.put("userEmail", email);
                 return SUCCESS;
             }catch (Exception e){
                 e.printStackTrace();
@@ -148,6 +154,9 @@ public class UserAction extends ActionSupport implements SessionAware{
         if (acti==2) {
             sessionMap.remove("userId");
             sessionMap.remove("userUserName");
+            sessionMap.remove("userFirstName");
+            sessionMap.remove("userLastName");
+            sessionMap.remove("userEmail");
             sessionMap.invalidate();
         }
 

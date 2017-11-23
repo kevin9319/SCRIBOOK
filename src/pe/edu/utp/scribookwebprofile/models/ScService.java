@@ -115,6 +115,10 @@ public class ScService {
 
     public List<Challenge> findAllChallenges() { return dataStore.findAllChallenges(); }
 
+    public List<Challenge> findChallengeByUser(int id) {
+        return dataStore.findChallengeByUser(id);
+    }
+
     public Challenge createChallenge(String Title, String Description, int Status, Date CreateDate, Date LastDate, Category category, User user) {
         return dataStore.createChallenge(Title,Description,Status,CreateDate,LastDate,category,user);
     }
@@ -174,7 +178,7 @@ public class ScService {
     }
 
 
-    public Story findStoryByUser(int id) {
+    public List<Story> findStoryByUser(int id) {
         return dataStore.findStoryByUser(id);
     }
 
@@ -182,7 +186,7 @@ public class ScService {
         return dataStore.findStoryByChallenge(id);
     }
 
-    public Story findStoryByTitleORStory(String TitleORStory) {
+    public List<Story> findStoryByTitleORStory(String TitleORStory) {
         return dataStore.findStoryByTitleORStory(TitleORStory);
     }
 
@@ -192,6 +196,10 @@ public class ScService {
 
     public boolean updateStory(int id, String Title,String Description) {
         return dataStore.updateStory(id, Title,Description);
+    }
+
+    public boolean updateStoryScore(int id) {
+        return dataStore.updateStoryScore(id);
     }
 
     public boolean deleteStory(int id){
@@ -214,13 +222,13 @@ public class ScService {
     }
 
 
-    public int getScoreCountScore(Story story) {
-        return dataStore.getScoreCountScore(story);
+    public int getScoreCountScore(int id) {
+        return dataStore.getScoreCountScore(id);
     }
 
 
-    public int getScoreCountUser(User user) {
-        return dataStore.getScoreCountUser(user);
+    public int getScoreCountUser(Story story, User user) {
+        return dataStore.getScoreCountUser(story, user);
     }
 
     public boolean updateScore(int id, int Status) {

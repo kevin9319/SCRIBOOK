@@ -1,7 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
-  User: Junior Cabrera
+  User: Ragina
   Date: 11/11/2017
   Time: 08:30 AM
   To change this template use File | Settings | File Templates.
@@ -145,9 +145,13 @@
 
                     </ul>
                 </li>
-
+                <li><a href="search.jsp">Ir a Buscar</a></li>
 
             </ul>
+
+
+
+
 
 
             <s:if test="%{#session.userId>0}">
@@ -165,7 +169,7 @@
                                 <s:a href="%{cc}"> <s:text name="Nuevo reto"/></s:a>
                             </li>
 
-                            <li><a href="story.jsp">Historias</a></li>
+
 
                         </ul>
                     </li>

@@ -49,8 +49,8 @@ public class ScoresEntity extends BaseEntity{
 
     public Score create(Score score) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(Id, Status, Story, User) VALUES(%d, %d, %d, %d)",
-                getTableName(),score.getId(),score.getStatus(),score.getStory().getId(),score.getUser().getId())) ?
+                "INSERT INTO %s(Status, Story, User) VALUES(1, %d, %d)",
+                getTableName(),score.getStory().getId(),score.getUser().getId())) ?
                 score : null;
     }
 
@@ -70,6 +70,7 @@ public class ScoresEntity extends BaseEntity{
 
 
     public Score create(int Status,Story story, User user) {
+
         return create(getMaxId()+1,Status, story,user);
     }
 
@@ -81,8 +82,8 @@ public class ScoresEntity extends BaseEntity{
 
 
 
-    public int getCountScore(Story story) {
-        String sql = "SELECT SUM(Status) AS sum_score FROM score WHERE Story="+story.getId();
+    public int getCountScore(int id) {
+        String sql = "SELECT SUM(Status) AS sum_score FROM score WHERE Story="+id;
         try {
             ResultSet resultSet = getConnection()
                     .createStatement()
@@ -96,8 +97,8 @@ public class ScoresEntity extends BaseEntity{
     }
 
 
-    public int getCountUser(User user) {
-        String sql = "SELECT COUNT(Id) AS count_id FROM score WHERE User="+user.getId();
+    public int getCountUser(Story story,User user) {
+        String sql = "SELECT COUNT(Id) AS count_id FROM score WHERE Story="+story.getId()+" AND User="+user.getId();
         try {
             ResultSet resultSet = getConnection()
                     .createStatement()

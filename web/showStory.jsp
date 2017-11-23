@@ -15,7 +15,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Historietas</title>
+    <title>Cuentos</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -23,33 +23,51 @@
 <body>
 
 <jsp:include page="navbar.jsp"/>
-<h1>Historietas:</h1>
+<h1>Cuentos:</h1>
+<h2>Titulo: <s:property value="challenge.title"/></h2>
+<h2>Descripción: <s:property value="challenge.description"/></h2>
 <s:if test="%{#session.userId>0}">
-<a href="story.jsp">Crear Nueva Historieta</a>
+    <s:form action="Createstory">
+        <s:hidden name="chStory" value="3"/>
+        <s:hidden name="challenge.id" value="%{challenge.id}"/>
+        <s:submit value="Crear Nuevo Cuento" type="button" cssClass="btn btn-default"/>
+    </s:form>
 </s:if>
 
 
 <div class="row">
 
-        <s:iterator value="stories">
+        <s:iterator value="stories" status="sto" var="stor">
 
-    <div class="col-md-12">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h1><s:property value="title"/></h1>
-            </div>
-            <div class="panel-footer">
-                <h3><s:property value="description"/></h3>
-                <h3><s:property value="createDate"/></h3>
-                <h3><s:property value="user.id"/></h3>
-                <h3><s:property value="user.userName"/></h3>
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h3><s:property value="title"/></h3>
+                        </div>
+                        <div class="panel-footer">
+                            <s:label value="Descripción:"/>
+                            <s:property value="description"/>
+                            <s:label value="Fecha Creación del Cuento:"/>
+                            <s:property value="createDate"/>
+                            <s:label value="Usuario:"/>
+                            <s:property value="user.userName"/>
+                            <s:label value="Puntaje:"/>
+                            <s:property value="scoreTotal"/>
 
+                            <s:if test="%{#session.userId>0}">
+                            <s:form action="scorestory">
+                                <s:hidden name="chStory" value="4"/>
+                                <s:hidden name="user.id" value="%{#session.userId}"/>
+                                <s:hidden name="story.id" value="%{#stor.id}"/>
+                                <s:hidden name="challenge.id" value="%{#stor.challenge.id}"/>
+                                <s:submit value="Me gusta" Class="btn btn-default"/>
+                            </s:form>
+                            </s:if>
 
+                        </div>
 
-            </div>
-
-        </div>
-    </div>
+                    </div>
+                </div>
         </s:iterator>
 
 

@@ -24,9 +24,9 @@ public class StoriesEntity extends BaseEntity{
                 String.format("WHERE Id = %d", id), challengeEntity, usersEntity, categoriesEntity).get(0);
     }
 
-    public Story findByUser(int id,ChallengeEntity challengeEntity, UsersEntity usersEntity,CategoriesEntity categoriesEntity) {
+    public List<Story> findByUser(int id,ChallengeEntity challengeEntity, UsersEntity usersEntity,CategoriesEntity categoriesEntity) {
         return findByCriteria(
-                String.format("WHERE User = %d", id), challengeEntity, usersEntity, categoriesEntity).get(0);
+                String.format("WHERE User = %d", id), challengeEntity, usersEntity, categoriesEntity);
     }
 
     public List<Story> findByChallenge(int id,ChallengeEntity challengeEntity, UsersEntity usersEntity,CategoriesEntity categoriesEntity) {
@@ -36,9 +36,9 @@ public class StoriesEntity extends BaseEntity{
 
 
 
-    public Story findByTitleORStory(String TitleORStory,ChallengeEntity challengeEntity, UsersEntity usersEntity,CategoriesEntity categoriesEntity) {
+    public List<Story> findByTitleORStory(String TitleORStory,ChallengeEntity challengeEntity, UsersEntity usersEntity,CategoriesEntity categoriesEntity) {
         return findByCriteria(
-                String.format("WHERE Title LIKE '%%%s%%' OR Description LIKE '%%%s%%'", TitleORStory,TitleORStory), challengeEntity, usersEntity, categoriesEntity).get(0);
+                String.format("WHERE Title LIKE '%%%s%%' OR Description LIKE '%%%s%%'", TitleORStory,TitleORStory), challengeEntity, usersEntity, categoriesEntity);
     }
 
 
@@ -64,8 +64,8 @@ public class StoriesEntity extends BaseEntity{
 
     public Story create(Story story) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(Id, Title, Description, ScoreTotal, CreateDate, User, Challenge) VALUES(%d, '%s', '%s', %d,'%tF', %d, %d)",
-                getTableName(),story.getId(),story.getTitle(),story.getDescription(),story.getScoreTotal(),story.getCreateDate(),story.getUser().getId(),story.getChallenge().getId())) ?
+                "INSERT INTO %s(Title, Description, ScoreTotal, CreateDate, User, Challenge) VALUES('%s', '%s', %d,CURDATE(), %d, %d)",
+                getTableName(),story.getTitle(),story.getDescription(),0,story.getUser().getId(),story.getChallenge().getId())) ?
                 story : null;
     }
 
@@ -81,6 +81,29 @@ public class StoriesEntity extends BaseEntity{
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public int getCountScore(int id) {
+        String sql = "SELECT SUM(Status) AS sum_score FROM score WHERE Story="+id;
+        try {
+            ResultSet resultSet = getConnection()
+                    .createStatement()
+                    .executeQuery(sql);
+            return resultSet.next() ?
+                    resultSet.getInt("sum_score") : 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public boolean updatescore(int id) {
+        return executeUpdate(String.format(
+                "UPDATE %s SET ScoreTotal = %d WHERE Id = %d", getTableName(), getCountScore(id), id));
+    }
+
+    public boolean updatescore(Story story) {
+        return updatescore(story.getId());
     }
 
 
@@ -99,8 +122,8 @@ public class StoriesEntity extends BaseEntity{
                 "UPDATE %s SET Title = '%s', Description = '%s' WHERE Id = %d", getTableName(), Title, Description, id));
     }
 
-    public boolean update(Challenge challenge) {
-        return update(challenge.getId(), challenge.getTitle(),challenge.getDescription());
+    public boolean update(Story story) {
+        return update(story.getId(), story.getTitle(),story.getDescription());
     }
 
     public boolean delete(int id){

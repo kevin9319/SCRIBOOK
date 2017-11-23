@@ -162,6 +162,14 @@ public class ChallengeAction extends ActionSupport{
 
         }
 
+        //Mostrar Mis Retos
+        if (chAct==4) {
+            ScService service = new ScService();
+            challenges=service.findChallengeByUser(user.getId());
+
+
+        }
+
 
 
         return SUCCESS;

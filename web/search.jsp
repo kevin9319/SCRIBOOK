@@ -3,7 +3,7 @@
 
 <%--
   Created by IntelliJ IDEA.
-  User: Administrador
+  User: Angelo
   Date: 11/11/2017
   Time: 02:04 PM
   To change this template use File | Settings | File Templates.
@@ -16,7 +16,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Crear Reto</title>
+    <title>Buscar Cuentos</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -26,51 +26,53 @@
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
+<h3 class="bg-success"><s:property value="msgstory"/></h3>
+<h1>Buscar Cuento</h1>
 
 <div class="container">
 
-<h1>Crear Reto:</h1>
+    <s:form action="serchstory" cssClass="form-horizontal">
+        <s:label value="Ingresar Titulo o Descripción del Cuento"/>
+        <s:textfield name="titleORStory" placeholder="Titulo" size="100%" label="Titulo" Class="form-control"/>
+        <s:hidden name="chStory" value="6"/>
+        <s:submit value="Buscar" Class="btn btn-default col-lg-offset-1"/>
+    </s:form>
+
+    <div class="row">
+
+        <s:iterator value="stories" status="sto" var="stor">
+
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3><s:label value="Reto:"/><s:property value="challenge.title"/></h3>
+                        <s:label value="Titulo:"/>
+                        <s:property value="title"/>
+                    </div>
+                    <div class="panel-footer">
+
+                        <s:label value="Descripción:"/>
+                        <s:property value="description"/>
+                        <s:label value="Fecha Creación del Cuento:"/>
+                        <s:property value="createDate"/>
+                        <s:label value="Puntaje:"/>
+                        <s:property value="scoreTotal"/>
+
+                    </div>
+
+                </div>
+            </div>
+        </s:iterator>
 
 
-<s:form action="addchallenge" cssClass="form-horizontal">
-
-    <label for="dtp_input2" class="col-md-2 control-label">Seleccionar Fecha Final del Reto:</label>
-    <div class="input-group date form_date col-md-4" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input2" data-link-format="dd/mm/yyyy">
-        <input class="form-control" size="16" type="text" value="" readonly>
-        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     </div>
-    <s:textfield type="hidden" name="lastDate" placeholder="Seleccionar Fecha:" id="dtp_input2"/>
-
-        <s:label value="Categorías:"/>
-        <s:select label="Seleccionar Categoría"
-                  headerKey="0" headerValue="Seleccionar Categoría"
-                  list="categories" listValue="description" listKey="id" name="category.id"  Class="btn btn-default">
-        </s:select>
-
-
-        <s:label value="Titulo"/>
-        <s:textfield name="title" placeholder="Titulo" size="100%" label="Titulo" Class="form-control"/>
-
-
-        <s:label value="Descricción"/>
-        <s:textarea name="description" placeholder="Descripcion" size="100%" Class="form-control"/>
-
-    <s:hidden name="user.id" value="%{#session.userId}"/>
-
-
-    <s:hidden name="chAct" value="2"/>
-
-        <s:submit value="Crear Reto" Class="btn btn-default col-lg-offset-2"/>
-
-
-
-</s:form>
-
-
-
 
 </div>
+
+
+
+
+
 
 <jsp:include page="footer.jsp"/>
 
@@ -115,9 +117,5 @@
         forceParse: 0
     });
 </script>
-
-
-
-
 </body>
 </html>

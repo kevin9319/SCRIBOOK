@@ -39,16 +39,20 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-body">
-                <h1><s:property value="title"/></h1>
+                <h3><s:property value="title"/></h3>
             </div>
             <div class="panel-footer">
-                <h3><s:property value="description"/></h3>
-                <h3><s:property value="createDate"/></h3>
+                <s:label value="Descripción:"/>
+                <s:property value="description"/>
+                <s:label value="Fecha Creación del Cuento:"/>
+                <s:property value="createDate"/>
                 <s:set var="user_id" value="id" scope="session"/>
                 <s:form action="story">
                     <s:hidden name="chStory" value="1"/>
+                    <s:hidden name="challenge.title" value="%{#challen.title}"/>
+                    <s:hidden name="challenge.description" value="%{#challen.description}"/>
                     <s:hidden name="challenge.id" value="%{#challen.id}"/>
-                    <s:submit value="Ir Historieta"/>
+                    <s:submit value="Ir al Reto" Class="btn btn-default"/>
                 </s:form>
             </div>
 

@@ -16,68 +16,40 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Retos</title>
+    <title>Crear Cuento</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-    <script type="text/javascript">
-        jQuery(function($){
-            $.datepicker.regional['es'] = {
-                closeText: 'Cerrar',
-                prevText: '<Ant',
-                nextText: 'Sig>',
-                currentText: 'Hoy',
-                monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
-                    'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
-                monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
-                    'Jul','Ago','Sep','Oct','Nov','Dic'],
-                dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-                dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
-                dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
-                weekHeader: 'Sm',
-                dateFormat: 'dd/mm/yy',
-                firstDay: 1,
-                isRTL: false,
-                showMonthAfterYear: false,
-                yearSuffix: ''};
-            $.datepicker.setDefaults($.datepicker.regional['es']);
-        });
-
-        $(document).ready(function(){
-            // obtenemos la fecha actual
-            var date = new Date();
-            var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
 
 
-            $("#llegada").datepicker({
-                showOn: 'button',
-                buttonText: "Calendario",
-                minDate: new Date(y, m, d),
-                dateFormat: 'dd/mm/yy',
-                maxDate: new Date(2013, 11, 31) });
-
-            $("#salida").datepicker({
-                showOn: 'button',
-                buttonText: "Calendario",
-                minDate: new Date(y, m, d),
-                dateFormat: 'dd/mm/yy',
-                maxDate: new Date(2013, 11, 31) });
-        });
-    </script>
 
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
-<h1>Crear Historieta:</h1>
+<h3 class="bg-success"><s:property value="msgstory"/></h3>
+<h1>Crear Cuento:</h1>
 
-<s:form action="challenge">
-    <s:textfield name="title" placeholder="Titulo" size="100%"/>
-    <s:textarea name="description" placeholder="Historieta" size="100%"/>
-    <s:submit value="Crear Historieta"/>
+<div class="container">
+<s:form action="addstory" cssClass="form-horizontal">
+    <s:label value="Titulo"/>
+    <s:textfield name="title" placeholder="Titulo" size="100%" label="Titulo" Class="form-control"/>
+
+
+    <s:label value="Descricción"/>
+    <s:textarea name="description" placeholder="Descripcion" size="100%" Class="form-control"/>
+
+
+    <s:hidden name="user.id" value="%{#session.userId}"/>
+    <s:hidden name="challenge.id" value="%{challenge.id}"/>
+    <s:hidden name="chStory" value="2"/>
+    <s:submit value="Ir al Cuento" Class="btn btn-default col-lg-offset-1"/>
 </s:form>
+
+</div>
+
+
+
+
 
 
 <jsp:include page="footer.jsp"/>
@@ -90,7 +62,39 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
-
+<script type="text/javascript">
+    $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1
+    });
+    $('.form_date').datetimepicker({
+        language:  'es',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+    $('.form_time').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 1,
+        minView: 0,
+        maxView: 1,
+        forceParse: 0
+    });
+</script>
 </body>
 </html>
 

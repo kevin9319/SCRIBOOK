@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Perfil de Usuario</title>
+    <title>Perfil - Mis Retos</title>
 
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -38,13 +38,34 @@
 
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h1>Datos del Usuario: </h1>
+                            <h1>Mis Retos: </h1>
                         </div>
                         <div class="panel-body">
-                            <h3>Usuario: <s:property value="#session.userUserName"/></h3>
-                            <h3>Nombres: <s:property value="#session.userFirstName"/></h3>
-                            <h3>Apellidos: <s:property value="#session.userLastName"/></h3>
-                            <h3>Correo electrónico: <s:property value="#session.userEmail"/></h3>
+
+                            <div class="row">
+
+                                <s:iterator value="challenges" status="chall" var="challen">
+
+                                    <div class="col-md-6">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <h4><s:label value="Titulo:"/></h4>
+                                                <h4><s:property value="title"/></h4>
+                                            </div>
+                                            <div class="panel-footer">
+                                                <h5><s:label value="Descripción:"/></h5>
+                                                <h5><s:property value="description"/></h5>
+                                                <h5><s:label value="Fecha Creación del Reto:"/></h5>
+                                                <h5><s:property value="createDate"/></h5>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </s:iterator>
+
+
+                            </div>
                         </div>
                     </div>
 

@@ -53,6 +53,11 @@ public class ChallengeEntity extends BaseEntity{
                 String.format("WHERE Category = %d", id), categoriesEntity, usersEntity);
     }
 
+    public List<Challenge> findByUser(int id, CategoriesEntity categoriesEntity, UsersEntity usersEntity) {
+        return findByCriteria(
+                String.format("WHERE User = %d", id), categoriesEntity, usersEntity);
+    }
+
     public Challenge create(Challenge challenge) {
         return executeUpdate(String.format(
                 "INSERT INTO %s(Title, Description, Status,CreateDate,LastDate, Category, User) VALUES('%s','%s',%d,CURDATE(),' " + challenge.getLastDate() +" ',%d,%d)",
