@@ -9,103 +9,72 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Retos</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crear Reto</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-    <script type="text/javascript">
-        jQuery(function($){
-            $.datepicker.regional['es'] = {
-                closeText: 'Cerrar',
-                prevText: '<Ant',
-                nextText: 'Sig>',
-                currentText: 'Hoy',
-                monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
-                    'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
-                monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
-                    'Jul','Ago','Sep','Oct','Nov','Dic'],
-                dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-                dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
-                dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
-                weekHeader: 'Sm',
-                dateFormat: 'dd/mm/yy',
-                firstDay: 1,
-                isRTL: false,
-                showMonthAfterYear: false,
-                yearSuffix: ''};
-            $.datepicker.setDefaults($.datepicker.regional['es']);
-        });
 
-        $(document).ready(function(){
-            // obtenemos la fecha actual
-            var date = new Date();
-            var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
-
-
-            $("#llegada").datepicker({
-                showOn: 'button',
-                buttonText: "Calendario",
-                minDate: new Date(y, m, d),
-                dateFormat: 'dd/mm/yy',
-                maxDate: new Date(2013, 11, 31) });
-
-            $("#salida").datepicker({
-                showOn: 'button',
-                buttonText: "Calendario",
-                minDate: new Date(y, m, d),
-                dateFormat: 'dd/mm/yy',
-                maxDate: new Date(2013, 11, 31) });
-        });
-    </script>
 
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
-<h1>Crear Reto:</h1>
 
 <div class="container">
+
     <div class="row">
-        <div class="col-md-12">
-            <s:form action="challenge">
-                <div class="form-group">
-                    <s:label value="Titulo" class="control-label col-sm-2"></s:label>
-                    <div class="col-sm-10">
-                        <s:textfield name="title" placeholder="Titulo" size="100%" class="form-control"/>
-                    </div>
+
+        <s:form action="addchallenge" Class="form-horizontal">
+
+            <!-- Form Name -->
+            <legend style="margin-top: 13px;margin-left: 126px; font-weight: bold"> Gestionar Retos</legend>
+
+            <label for="dtp_input2" class="control-label"
+                   style="margin-bottom: 9px;margin-top: 5px;margin-left: 127px;">Fecha Fin Reto:</label>
+            <div class="input-group date form_date col-md-2" data-date="" data-date-format="dd/mm/yyyy"
+                 style="margin-left: 125px;"
+                 data-link-field="dtp_input2" data-link-format="dd/mm/yyyy">
+                <input class="form-control" size="16" type="text" value="" readonly>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+            <s:textfield type="hidden" name="lastDate" placeholder="Seleccionar Fecha:" id="dtp_input2"/>
+
+            <s:label value="Categorías:" class="control-label" style="margin-bottom: 10px;"/>
+            <s:select label="Seleccionar Categoría"
+                      headerKey="0" headerValue="Seleccionar Categoría"
+                      list="categories" listValue="description" listKey="id" name="category.id" Class="btn btn-default">
+            </s:select>
+
+            <s:label value="Titulo" class="control-label" style="margin-bottom: 11px;margin-top: 11px;"/>
+            <s:textfield name="title" placeholder="Titulo" style="width: 585px;" label="Titulo" Class="form-control"/>
+
+            <s:label value="Descricción" class="control-label" style="margin-bottom: 11px;margin-top: 14px;"/>
+            <s:textarea name="description" placeholder="Descripcion" style="width: 585px;height: 150px;"
+                        Class="form-control"/>
+
+            <s:hidden name="user.id" value="%{#session.userId}"/>
+            <s:hidden name="chAct" value="2"/>
+
+            <div class="form-group">
+                <div class="">
+                    <s:submit value="Crear Reto" Class="btn btn-info"
+                              style="margin-left: 125px;margin-top: 20px;margin-bottom: 20px;"/>
                 </div>
-                <div class="form-group">
-                    <s:label value="Descripcion"></s:label>
-                    <s:textfield name="description" placeholder="Descripcion" size="100%" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <s:label value="Categoria"></s:label>
-                    <s:textfield name="category.id" placeholder="Descripcion" size="100%" class="form-control"/>
-                </div>
-                <s:textfield name="user.id" placeholder="Descripcion" size="100%"/>
-                <div class="form-group">
-                    <s:label value="Fecha Fin"></s:label>
-                    <s:textfield name="lastDate" placeholder="Fecha" class="form-control"/>
-                </div>
-                <br>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <s:submit value="Guardar" class="btn btn-primary btn-lg"/>
-                    </div>
-                </div>
-            </s:form>
-        </div>
+            </div>
+
+        </s:form>
     </div>
+
 </div>
 
-
 <jsp:include page="footer.jsp"/>
-
-
 
 
 <script src="js/index.js"></script>
@@ -113,6 +82,40 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+<script type="text/javascript">
+    $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1
+    });
+    $('.form_date').datetimepicker({
+        language: 'es',
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+    $('.form_time').datetimepicker({
+        language: 'fr',
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 1,
+        minView: 0,
+        maxView: 1,
+        forceParse: 0
+    });
+</script>
+
 
 </body>
 </html>
