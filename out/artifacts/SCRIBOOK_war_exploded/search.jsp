@@ -27,18 +27,10 @@
 <body>
 <jsp:include page="navbar.jsp"/>
 <h3 class="bg-success"><s:property value="msgstory"/></h3>
-<h1>Buscar Cuento</h1>
 
 <div class="container">
 
-    <s:form action="serchstory" cssClass="form-horizontal">
-        <s:label value="Ingresar Titulo o Descripción del Cuento"/>
-        <s:textfield name="titleORStory" placeholder="Titulo" size="100%" label="Titulo" Class="form-control"/>
-        <s:hidden name="chStory" value="6"/>
-        <s:submit value="Buscar" Class="btn btn-default col-lg-offset-1"/>
-    </s:form>
-
-    <div class="row">
+     <div class="row">
 
         <s:iterator value="stories" status="sto" var="stor">
 
