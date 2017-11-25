@@ -10,6 +10,8 @@
 
 
 
+
+
     <action name="category" class="pe.edu.utp.scribookwebprofile.actions.CategoryAction">
         <result name="success">categories.jsp</result>
         <result name="input">error.jsp</result>
@@ -17,19 +19,62 @@
 
 
     <action name="user" class="pe.edu.utp.scribookwebprofile.actions.UserAction">
-        <result name="success">categories.jsp</result>
+        <result name="success">index.jsp</result>
         <result name="input">error.jsp</result>
     </action>
 
     <action name="challenge" class="pe.edu.utp.scribookwebprofile.actions.ChallengeAction">
+        <result name="success">showChallenge.jsp</result>
+        <result name="input">error.jsp</result>
+    </action>
+
+    <action name="story" class="pe.edu.utp.scribookwebprofile.actions.StoryAction">
+        <result name="success">showStory.jsp</result>
+        <result name="input">error.jsp</result>
+    </action>
+
+    <action name="Createstory" class="pe.edu.utp.scribookwebprofile.actions.StoryAction">
+        <result name="success">story.jsp</result>
+        <result name="input">error.jsp</result>
+    </action>
+
+    <action name="addstory" class="pe.edu.utp.scribookwebprofile.actions.StoryAction">
+    <result name="success">story.jsp</result>
+    <result name="input">error.jsp</result>
+    </action>
+
+    <action name="scorestory" class="pe.edu.utp.scribookwebprofile.actions.StoryAction">
+        <result name="success">showStory.jsp</result>
+        <result name="input">error.jsp</result>
+    </action>
+
+    <action name="Createchallenge" class="pe.edu.utp.scribookwebprofile.actions.ChallengeAction">
         <result name="success">challenge.jsp</result>
         <result name="input">error.jsp</result>
     </action>
 
-    <action name="showChallenge" class="pe.edu.utp.scribookwebprofile.actions.ChallengeAction" method="showChallenge">
-        <result name="success">showStory.jsp</result>
+    <action name="addchallenge" class="pe.edu.utp.scribookwebprofile.actions.ChallengeAction">
+        <result name="success">index.jsp</result>
         <result name="input">error.jsp</result>
     </action>
+
+
+    <action name="showchallenge" class="pe.edu.utp.scribookwebprofile.actions.ChallengeAction">
+        <result name="success">_profile_challenge.jsp</result>
+        <result name="input">error.jsp</result>
+    </action>
+
+    <action name="showstory" class="pe.edu.utp.scribookwebprofile.actions.StoryAction">
+        <result name="success">_profile_story.jsp</result>
+        <result name="input">error.jsp</result>
+    </action>
+
+
+    <action name="serchstory" class="pe.edu.utp.scribookwebprofile.actions.StoryAction">
+        <result name="success">search.jsp</result>
+        <result name="input">error.jsp</result>
+    </action>
+
 
     <action name="showKeyword" class="pe.edu.utp.scribookwebprofile.actions.KeywordAction" method="showKeyword">
         <result name="success">challenge.jsp</result>
@@ -37,15 +82,6 @@
     </action>
 
 
-    <action name="showStory" class="pe.edu.utp.scribookwebprofile.actions.StoryAction" method="showStory">
-        <result name="success">showStory.jsp</result>
-        <result name="input">error.jsp</result>
-    </action>
-
-    <action name="updateStory" class="pe.edu.utp.scribookwebprofile.actions.StoryAction" method="updateStory">
-        <result name="success">showStory.jsp</result>
-        <result name="input">error.jsp</result>
-    </action>
 
 
 

@@ -22,59 +22,59 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
+
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
 
 <div class="container">
 
-    <div class="row">
+<h1>Crear Reto:</h1>
 
-        <s:form action="addchallenge" Class="form-horizontal">
 
-            <!-- Form Name -->
-            <legend style="margin-top: 13px;margin-left: 126px; font-weight: bold"> Gestionar Retos</legend>
+<s:form action="addchallenge" cssClass="form-horizontal">
 
-            <label for="dtp_input2" class="control-label"
-                   style="margin-bottom: 9px;margin-top: 5px;margin-left: 127px;">Fecha Fin Reto:</label>
-            <div class="input-group date form_date col-md-2" data-date="" data-date-format="dd/mm/yyyy"
-                 style="margin-left: 125px;"
-                 data-link-field="dtp_input2" data-link-format="dd/mm/yyyy">
-                <input class="form-control" size="16" type="text" value="" readonly>
-                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-            </div>
-            <s:textfield type="hidden" name="lastDate" placeholder="Seleccionar Fecha:" id="dtp_input2"/>
-
-            <s:label value="Categorías:" class="control-label" style="margin-bottom: 10px;"/>
-            <s:select label="Seleccionar Categoría"
-                      headerKey="0" headerValue="Seleccionar Categoría"
-                      list="categories" listValue="description" listKey="id" name="category.id" Class="btn btn-default">
-            </s:select>
-
-            <s:label value="Titulo" class="control-label" style="margin-bottom: 11px;margin-top: 11px;"/>
-            <s:textfield name="title" placeholder="Titulo" style="width: 585px;" label="Titulo" Class="form-control"/>
-
-            <s:label value="Descricción" class="control-label" style="margin-bottom: 11px;margin-top: 14px;"/>
-            <s:textarea name="description" placeholder="Descripcion" style="width: 585px;height: 150px;"
-                        Class="form-control"/>
-
-            <s:hidden name="user.id" value="%{#session.userId}"/>
-            <s:hidden name="chAct" value="2"/>
-
-            <div class="form-group">
-                <div class="">
-                    <s:submit value="Crear Reto" Class="btn btn-info"
-                              style="margin-left: 125px;margin-top: 20px;margin-bottom: 20px;"/>
-                </div>
-            </div>
-
-        </s:form>
+    <label for="dtp_input2" class="col-md-2 control-label">Seleccionar Fecha Final del Reto:</label>
+    <div class="input-group date form_date col-md-4" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input2" data-link-format="dd/mm/yyyy">
+        <input class="form-control" size="16" type="text" value="" readonly>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     </div>
+    <s:textfield type="hidden" name="lastDate" placeholder="Seleccionar Fecha:" id="dtp_input2"/>
+
+        <s:label value="Categorías:"/>
+        <s:select label="Seleccionar Categoría"
+                  headerKey="0" headerValue="Seleccionar Categoría"
+                  list="categories" listValue="description" listKey="id" name="category.id"  Class="btn btn-default">
+        </s:select>
+
+
+        <s:label value="Titulo"/>
+        <s:textfield name="title" placeholder="Titulo" size="100%" label="Titulo" Class="form-control"/>
+
+
+        <s:label value="Descricción"/>
+        <s:textarea name="description" placeholder="Descripcion" size="100%" Class="form-control"/>
+
+    <s:hidden name="user.id" value="%{#session.userId}"/>
+
+
+    <s:hidden name="chAct" value="2"/>
+
+        <s:submit value="Crear Reto" Class="btn btn-default col-lg-offset-2"/>
+
+
+
+</s:form>
+
+
+
 
 </div>
 
 <jsp:include page="footer.jsp"/>
+
+
 
 
 <script src="js/index.js"></script>
@@ -86,7 +86,7 @@
     $('.form_datetime').datetimepicker({
         //language:  'fr',
         weekStart: 1,
-        todayBtn: 1,
+        todayBtn:  1,
         autoclose: 1,
         todayHighlight: 1,
         startView: 2,
@@ -94,9 +94,9 @@
         showMeridian: 1
     });
     $('.form_date').datetimepicker({
-        language: 'es',
+        language:  'es',
         weekStart: 1,
-        todayBtn: 1,
+        todayBtn:  1,
         autoclose: 1,
         todayHighlight: 1,
         startView: 2,
@@ -104,9 +104,9 @@
         forceParse: 0
     });
     $('.form_time').datetimepicker({
-        language: 'fr',
+        language:  'fr',
         weekStart: 1,
-        todayBtn: 1,
+        todayBtn:  1,
         autoclose: 1,
         todayHighlight: 1,
         startView: 1,
@@ -115,6 +115,8 @@
         forceParse: 0
     });
 </script>
+
+
 
 
 </body>
