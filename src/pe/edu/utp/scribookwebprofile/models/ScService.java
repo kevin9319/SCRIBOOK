@@ -171,10 +171,16 @@ public class ScService {
         return dataStore.getWinnerCountChallenge(challenge);
     }
 
+
+
     //------------------Story----------------------------------------------------------------
 
     public Story findStoryById(int id) {
         return dataStore.findStoryById(id);
+    }
+
+    public Story findStoryByChallengeWinner(int id) {
+        return dataStore.findStoryByChallengeWinner(id);
     }
 
 

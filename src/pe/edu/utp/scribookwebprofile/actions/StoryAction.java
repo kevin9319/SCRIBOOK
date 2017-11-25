@@ -19,7 +19,34 @@ public class StoryAction extends ActionSupport{
     private String msgstory;
     private Story story;
     private String TitleORStory;
+    private Winner winner;
+    private List<Challenge> challenges;
+    private int countw;
 
+
+    public int getCountw() {
+        return countw;
+    }
+
+    public void setCountw(int countw) {
+        this.countw = countw;
+    }
+
+    public List<Challenge> getChallenges() {
+        return challenges;
+    }
+
+    public void setChallenges(List<Challenge> challenges) {
+        this.challenges = challenges;
+    }
+
+    public Winner getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Winner winner) {
+        this.winner = winner;
+    }
 
     public String getTitleORStory() {
         return TitleORStory;
@@ -121,9 +148,22 @@ public class StoryAction extends ActionSupport{
     public String execute() {
         //Buscar todas los cuentos relacionadas a un reto
         if (chStory==1) {
+
             ScService service = new ScService();
+            stories=null;
 
             stories=service.findStoryByChallenge(challenge.getId());
+
+
+            ScService winservice = new ScService();
+            countw=winservice.getWinnerCountChallenge(challenge);
+            if(countw>0){
+                winner=null;
+                ScService wiservice = new ScService();
+                winner=new Winner();
+                winner=wiservice.findWinnerByUser(challenge.getId());
+            }
+
 
 
 
@@ -158,7 +198,7 @@ public class StoryAction extends ActionSupport{
                 serviceupdate.updateStoryScore(story.getId());
             }
 
-
+            stories=null;
 
             ScService serviceall = new ScService();
             stories=serviceall.findStoryByChallenge(challenge.getId());
@@ -169,6 +209,7 @@ public class StoryAction extends ActionSupport{
 
         //Mostrar mis Cuentos
         if (chStory==5){
+            stories=null;
             ScService service = new ScService();
             stories=service.findStoryByUser(user.getId());
 
@@ -176,8 +217,25 @@ public class StoryAction extends ActionSupport{
 
 
         if (chStory==6){
+            stories=null;
             ScService service = new ScService();
             stories=service.findStoryByTitleORStory(TitleORStory);
+        }
+
+        if (chStory==7){
+            story=null;
+            ScService service = new ScService();
+            story=new Story();
+            story=service.findStoryByChallengeWinner(challenge.getId());
+            ScService createservice = new ScService();
+            createservice.createWinner(challenge,story.getUser());
+            ScService updateservice = new ScService();
+            updateservice.updateChallengeStatus(challenge.getId(),1);
+            challenges=null;
+
+            ScService showservice = new ScService();
+            challenges=showservice.findChallengeByUser(user.getId());
+
         }
 
 

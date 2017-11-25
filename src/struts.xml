@@ -75,6 +75,11 @@
         <result name="input">error.jsp</result>
     </action>
 
+    <action name="winnerstory" class="pe.edu.utp.scribookwebprofile.actions.StoryAction">
+        <result name="success">_profile_challenge.jsp</result>
+        <result name="input">error.jsp</result>
+    </action>
+
 
     <action name="showKeyword" class="pe.edu.utp.scribookwebprofile.actions.KeywordAction" method="showKeyword">
         <result name="success">challenge.jsp</result>

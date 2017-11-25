@@ -138,6 +138,8 @@ public class ChallengeAction extends ActionSupport{
             //scservice.createChallenge(title,description,status,createDate,lastDate,category,user);
         //Buscar los retos por categoria
         if (chAct==1) {
+            challenges=null;
+
                 ScService service = new ScService();
                 challenges=service.findChallengeByCategory(category.getId());
 
@@ -157,6 +159,7 @@ public class ChallengeAction extends ActionSupport{
 
         //Mostrar Categorias
         if (chAct==3) {
+            categories=null;
             ScService service = new ScService();
             categories=service.findAllCategories();
 
@@ -164,6 +167,7 @@ public class ChallengeAction extends ActionSupport{
 
         //Mostrar Mis Retos
         if (chAct==4) {
+            challenges=null;
             ScService service = new ScService();
             challenges=service.findChallengeByUser(user.getId());
 

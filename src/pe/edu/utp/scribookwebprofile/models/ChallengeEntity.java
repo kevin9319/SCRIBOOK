@@ -61,7 +61,7 @@ public class ChallengeEntity extends BaseEntity{
     public Challenge create(Challenge challenge) {
         return executeUpdate(String.format(
                 "INSERT INTO %s(Title, Description, Status,CreateDate,LastDate, Category, User) VALUES('%s','%s',%d,CURDATE(),' " + challenge.getLastDate() +" ',%d,%d)",
-                getTableName(),challenge.getTitle(),challenge.getDescription(),1,challenge.getCategory().getId(),challenge.getUser().getId())) ?
+                getTableName(),challenge.getTitle(),challenge.getDescription(),0,challenge.getCategory().getId(),challenge.getUser().getId())) ?
                 challenge : null;
     }
 

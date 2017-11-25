@@ -44,14 +44,17 @@
             <div class="panel-footer">
                 <s:label value="Descripción:"/>
                 <s:property value="description"/>
-                <s:label value="Fecha Creación del Cuento:"/>
+                <s:label value="Fecha Creación del Reto:"/>
                 <s:property value="createDate"/>
+                <s:label value="Fecha Cierre del Reto:"/>
+                <s:property value="lastDate"/>
                 <s:set var="user_id" value="id" scope="session"/>
                 <s:form action="story">
                     <s:hidden name="chStory" value="1"/>
                     <s:hidden name="challenge.title" value="%{#challen.title}"/>
                     <s:hidden name="challenge.description" value="%{#challen.description}"/>
                     <s:hidden name="challenge.id" value="%{#challen.id}"/>
+                    <s:hidden name="challenge.user.id" value="%{#challen.user.id}"/>
                     <s:submit value="Ir al Reto" Class="btn btn-default"/>
                 </s:form>
             </div>

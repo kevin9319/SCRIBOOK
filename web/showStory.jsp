@@ -24,9 +24,21 @@
 
 <jsp:include page="navbar.jsp"/>
 <h1>Cuentos:</h1>
-<h2>Titulo: <s:property value="challenge.title"/></h2>
+<h2>Titulo del Reto: <s:property value="challenge.title"/></h2>
 <h2>Descripción: <s:property value="challenge.description"/></h2>
-<s:if test="%{#session.userId>0}">
+<h2>Ganador del Reto:
+    <s:if test="%{countw==0}">
+        No hay Ganador
+    </s:if>
+    <s:if test="%{countw>0}">
+        <s:property value="winner.user.userName"/>
+    </s:if>
+
+
+
+</h2>
+
+<s:if test="%{#session.userId>0 && challenge.user.id!=#session.userId}">
     <s:form action="Createstory">
         <s:hidden name="chStory" value="3"/>
         <s:hidden name="challenge.id" value="%{challenge.id}"/>
@@ -60,6 +72,8 @@
                                 <s:hidden name="user.id" value="%{#session.userId}"/>
                                 <s:hidden name="story.id" value="%{#stor.id}"/>
                                 <s:hidden name="challenge.id" value="%{#stor.challenge.id}"/>
+                                <s:hidden name="challenge.title" value="%{challenge.title}"/>
+                                <s:hidden name="challenge.description" value="%{challenge.description}"/>
                                 <s:submit value="Me gusta" Class="btn btn-default"/>
                             </s:form>
                             </s:if>

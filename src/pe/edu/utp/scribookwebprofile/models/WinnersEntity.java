@@ -47,6 +47,7 @@ public class WinnersEntity extends BaseEntity{
             while(rs.next())
                 winners.add(Winner.from(rs, challengeEntity, usersEntity, categoriesEntity));
 
+
             return winners;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -57,8 +58,8 @@ public class WinnersEntity extends BaseEntity{
 
     public Winner create(Winner winner) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(Id, Challenge, User) VALUES(%d, %d, %d)",
-                getTableName(),winner.getId(),winner.getChallenge().getId(),winner.getUser().getId())) ?
+                "INSERT INTO %s(Challenge, User) VALUES(%d, %d)",
+                getTableName(),winner.getChallenge().getId(),winner.getUser().getId())) ?
                 winner : null;
     }
 
@@ -75,6 +76,9 @@ public class WinnersEntity extends BaseEntity{
         }
         return 0;
     }
+
+
+
 
     public int getCountChallenge(Challenge challenge) {
         String sql = "SELECT COUNT(Id) AS count_id FROM winner WHERE Challenge="+challenge.getId();

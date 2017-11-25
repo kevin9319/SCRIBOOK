@@ -131,12 +131,14 @@ public class UserAction extends ActionSupport implements SessionAware{
 
             try {
                 ScService scservice = new ScService();
+
                 User user = scservice.findUserByNamePassword(userName, password);
                 id=user.getId();
                 userName=user.getUserName();
                 firstName=user.getFirstName();
                 lastName=user.getLastName();
                 email=user.getEmail();
+                user=null;
                 sessionMap.put("userId", id);
                 sessionMap.put("userUserName", userName);
                 sessionMap.put("userFirstName", firstName);
@@ -173,7 +175,9 @@ public class UserAction extends ActionSupport implements SessionAware{
                 gender="F";
             }
 
-            User user=scservice.createUser(userName,firstName,lastName,password,email,nickName,gender,status);
+            scservice.createUser(userName,firstName,lastName,password,email,nickName,gender,status);
+
+
         }
 
 

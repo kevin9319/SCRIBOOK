@@ -265,6 +265,8 @@ public class ScDataStore {
 
 
 
+
+
     //------------------Story-------------------------------------------------------------------
 
     private StoriesEntity getStoriesEntity() {
@@ -278,6 +280,11 @@ public class ScDataStore {
     public Story findStoryById(int id) {
         if(connection == null) return null;
         return getStoriesEntity().findById(id,getChallengeEntity(),getUsersEntity(),getCategoriesEntity());
+    }
+
+    public Story findStoryByChallengeWinner(int id) {
+        if(connection == null) return null;
+        return getStoriesEntity().findByChallengeWinner(id,getChallengeEntity(),getUsersEntity(),getCategoriesEntity());
     }
 
     public List<Story> findStoryByUser(int id) {

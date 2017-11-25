@@ -34,6 +34,11 @@ public class StoriesEntity extends BaseEntity{
                 String.format("WHERE Challenge = %d", id), challengeEntity, usersEntity, categoriesEntity);
     }
 
+    public Story findByChallengeWinner(int id,ChallengeEntity challengeEntity, UsersEntity usersEntity,CategoriesEntity categoriesEntity) {
+        return findByCriteria(
+                String.format("WHERE Challenge = %d ORDER BY ScoreTotal DESC LIMIT 1", id), challengeEntity, usersEntity, categoriesEntity).get(0);
+    }
+
 
 
     public List<Story> findByTitleORStory(String TitleORStory,ChallengeEntity challengeEntity, UsersEntity usersEntity,CategoriesEntity categoriesEntity) {

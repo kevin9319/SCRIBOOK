@@ -105,6 +105,7 @@ public class CategoryAction  extends ActionSupport {
             Category category = service.findCategoryById(1);
             id = category.getId();
             description = category.getDescription();
+            category=null;
         }
 
         if (act==2) {
@@ -112,11 +113,14 @@ public class CategoryAction  extends ActionSupport {
             Category category = service.findCategoryById(2);
             id = category.getId();
             description = category.getDescription();
+            category=null;
         }
 
         if (act==3) {
+            categories=null;
             ScService service = new ScService();
             categories= service.findAllCategories();
+
         }
 
 

@@ -49,14 +49,39 @@
                                     <div class="col-md-6">
                                         <div class="panel panel-default">
                                             <div class="panel-body">
+
                                                 <h4><s:label value="Titulo:"/></h4>
                                                 <h4><s:property value="title"/></h4>
+                                                <h5>Reto:</h5>
+
+                                                <s:if test="%{#challen.status==1}">
+                                                        <h4>Terminado</h4>
+                                                    </s:if>
+                                                    <s:else>
+                                                        <h4>Abierto</h4>
+
+                                                    </s:else>
+                                                <s:form action="story">
+                                                    <s:hidden name="chStory" value="1"/>
+                                                    <s:hidden name="challenge.title" value="%{#challen.title}"/>
+                                                    <s:hidden name="challenge.description" value="%{#challen.description}"/>
+                                                    <s:hidden name="challenge.id" value="%{#challen.id}"/>
+                                                    <s:submit value="Ir al Reto" Class="btn btn-default"/>
+                                                </s:form>
                                             </div>
                                             <div class="panel-footer">
                                                 <h5><s:label value="Descripción:"/></h5>
                                                 <h5><s:property value="description"/></h5>
-                                                <h5><s:label value="Fecha Creación del Reto:"/></h5>
+                                                <h5><s:label value="Fecha - Creación del Reto:"/></h5>
                                                 <h5><s:property value="createDate"/></h5>
+                                                <h5><s:label value="Fecha - Finalización del Reto:"/></h5>
+                                                <h5><s:property value="lastDate"/></h5>
+                                                <s:form action="winnerstory">
+                                                    <s:hidden name="chStory" value="7"/>
+                                                    <s:hidden name="challenge.id" value="%{#challen.id}"/>
+                                                    <s:hidden name="user.id" value="%{#session.userId}"/>
+                                                    <s:submit value="Terminar Reto" Class="btn btn-default"/>
+                                                </s:form>
 
                                             </div>
 

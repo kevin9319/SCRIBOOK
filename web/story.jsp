@@ -42,7 +42,7 @@
     <s:hidden name="user.id" value="%{#session.userId}"/>
     <s:hidden name="challenge.id" value="%{challenge.id}"/>
     <s:hidden name="chStory" value="2"/>
-    <s:submit value="Ir al Cuento" Class="btn btn-default col-lg-offset-1"/>
+    <s:submit value="Crear el Cuento" Class="btn btn-default col-lg-offset-1"/>
 </s:form>
 
 </div>

@@ -71,7 +71,7 @@
 
 <s:if test="%{#session.userId>0}">
     <div class="col-md-8">
-        <img src="img/imgstory.png" alt="..." class="img-thumbnail" width="600" height="600">
+        <img src="img/bienvenido.jpg" alt="..." class="img-thumbnail" width="600" height="600">
     </div>
 </s:if>
 
