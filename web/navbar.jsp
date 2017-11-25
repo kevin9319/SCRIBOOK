@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -145,7 +145,12 @@
 
                     </ul>
                 </li>
-                <li><a href="search.jsp">Ir a Buscar</a></li>
+
+                <s:form theme="simple" cssClass="navbar-form navbar-left form-horizontal"  action="serchstory">
+                        <s:textfield  id="textbuscar" name="titleORStory" placeholder="Buscar historias...." cssClass="form-control"/>
+                       <s:hidden name="chStory" value="6"/>
+                        <s:submit class="buttonsearch" value="Buscar"></s:submit>
+                </s:form>
 
             </ul>
 
