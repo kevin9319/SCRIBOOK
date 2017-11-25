@@ -19,6 +19,8 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body>
 
