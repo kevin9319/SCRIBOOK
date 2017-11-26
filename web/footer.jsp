@@ -12,5 +12,8 @@
         <div class="navbar-text pull-left">
             <p style="color: #FFFFFF;"> © 2017 Copyright SCRIBOOK  </p>
         </div>
+         <div class="navbar-text pull-rigth">
+            <p style="color: #FFFFFF;"> © 2017 Copyright SCRIBOOK  </p>
+        </div>
     </div>
 </div>
